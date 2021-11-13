@@ -2,16 +2,6 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/index");
 
-router.get("/about", async (req, res) => {
-  try {
-    res.status(200).json({
-      status: "success"
-    });
-  } catch (err) {
-    console.log(err);
-  }
-});
-
 router.post("/skill/add-skill", async (req, res) => {
   try {
     const currentSkills = await db.query("SELECT skill FROM skills");
