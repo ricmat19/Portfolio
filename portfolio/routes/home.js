@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.status(201).json({
+    res.status(200).json({
       status: "success",
       // results: product.rows.length,
       // data:{

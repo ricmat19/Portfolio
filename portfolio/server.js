@@ -1,15 +1,12 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
+const path = require("path");
+const app = express();
 const homeRouter = require("./routes/home");
 const aboutRouter = require("./routes/about");
 const portfolioRouter = require("./routes/portfolio");
 const projectDetailsRouter = require("./routes/projectDetails");
 const contactRouter = require("./routes/contact");
-
-app.listen(3000, function () {
-  console.log("Server Running...");
-});
 
 //allows for different domains to communicate
 app.use(cors());
@@ -24,3 +21,16 @@ app.use(aboutRouter);
 app.use(contactRouter);
 app.use(portfolioRouter);
 app.use(projectDetailsRouter);
+
+//Serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server Running on port: ${process.env.PORT}`);
+});

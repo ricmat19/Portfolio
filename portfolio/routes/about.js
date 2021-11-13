@@ -4,7 +4,7 @@ const db = require("../db/index");
 
 router.get("/about", async (req, res) => {
   try {
-    res.status(201).json({
+    res.status(200).json({
       status: "success"
     });
   } catch (err) {
