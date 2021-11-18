@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import IndexAPI from "../../apis/indexAPI";
-import HeaderC from "../header";
-import FooterC from "../footer";
+import AdminHeaderC from "./header";
+import AdminFooterC from "./footer";
 import SkillC from "./addSkill";
 
 function importAll(icons) {
@@ -58,7 +58,7 @@ const AboutC = () => {
 
   return (
     <div className="main">
-      <HeaderC />
+      <AdminHeaderC />
       <div className={skillModal}>
         <div ref={skillRef} className="modal-content">
           <SkillC
@@ -195,7 +195,7 @@ const AboutC = () => {
           </div>
         </div>
       </div>
-      <FooterC />
+      <AdminFooterC />
     </div>
   );
 };

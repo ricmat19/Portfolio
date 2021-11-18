@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import IndexAPI from "../../apis/indexAPI";
-import HeaderC from "../header";
-import FooterC from "../footer";
+import AdminHeaderC from "./header";
+import AdminFooterC from "./footer";
 import LeftArrowC from "../leftArrow";
 import RightArrowC from "../rightArrow";
 
@@ -92,7 +92,7 @@ const ProjectDetailsC = () => {
 
   return (
     <div className="main">
-      <HeaderC />
+      <AdminHeaderC />
 
       <div className="project-details-container">
         <div className="title-div">
@@ -180,7 +180,7 @@ const ProjectDetailsC = () => {
         </div>
       </div>
 
-      <FooterC />
+      <AdminFooterC />
     </div>
   );
 };

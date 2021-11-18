@@ -33,6 +33,33 @@ a {
   grid-template-rows: auto 1fr auto;
 }
 
+.login-main {
+  display: grid;
+  height: 100vh;
+  color: white;
+  background-color: black;
+  justify-content: center;
+  align-content: center;
+}
+
+.login-inputs{
+  display: grid;
+  gap: 10px;
+  width: 300px;
+}
+
+.login-header{
+  text-align: center;
+}
+
+.form-button-div{
+  text-align: center;
+}
+
+.form-button{
+  border: white 3px solid;
+}
+
 .grid {
   display: grid;
 }
@@ -320,6 +347,20 @@ textarea {
 
 .footer-nav {
   grid-template-columns: repeat(5, 1fr);
+}
+
+.admin-navbar {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, minmax(50px, 150px));
+  background-color: black;
+  height: 92px;
+}
+
+.admin-footer-nav {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
 .modal-content {

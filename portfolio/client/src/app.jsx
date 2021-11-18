@@ -5,6 +5,8 @@ import About from "./routes/about";
 import Portfolio from "./routes/portfolio";
 import ProjectDetails from "./routes/projectDetails";
 import Contact from "./routes/contact";
+import AdminLogin from "./routes/admin/login";
+import AdminHome from "./routes/admin/home";
 import AdminPortfolio from "./routes/admin/portfolio";
 import AdminProjectDetails from "./routes/admin/projectDetails";
 import AdminAbout from "./routes/admin/about.jsx";
@@ -20,12 +22,10 @@ const App = () => {
           <Route exact path="/portfolio" component={Portfolio} />
           <Route exact path="/portfolio/:project" component={ProjectDetails} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/admin/login" component={AdminLogin} />
+          <Route exact path="/admin" component={AdminHome} />
           <Route exact path="/admin/portfolio" component={AdminPortfolio} />
-          <Route
-            exact
-            path="/admin/portfolio/:project"
-            component={AdminProjectDetails}
-          />
+          <Route exact path="/admin/portfolio/:project" component={AdminProjectDetails} />
           <Route exact path="/admin/about" component={AdminAbout} />
         </Router>
       </div>

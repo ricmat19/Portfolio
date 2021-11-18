@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import IndexAPI from "../../apis/indexAPI";
-import HeaderC from "../header";
-import FooterC from "../footer";
+import AdminHeaderC from "./header";
+import AdminFooterC from "./footer";
 import CreateC from "./addProject";
 import UpdateC from "./updateProject";
 import DeleteC from "./deleteProject";
@@ -285,7 +285,7 @@ const PortfolioC = () => {
 
   return (
     <div className="main">
-      <HeaderC />
+      <AdminHeaderC />
       <div className={createModal}>
         <div ref={createRef} className="modal-content">
           <CreateC
@@ -411,7 +411,7 @@ const PortfolioC = () => {
           })}
         </div>
       </div>
-      <FooterC />
+      <AdminFooterC />
     </div>
   );
 };
