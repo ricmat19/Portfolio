@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import {useHistory} from "react-router-dom";
 import IndexAPI from "../../apis/indexAPI";
 
 const LoginC = () => {
@@ -11,9 +10,6 @@ const LoginC = () => {
     const emailInput = useRef(null);
     const passwordInput = useRef(null);
 
-    let history = useHistory();
-    history.push("/admin")
-
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -21,6 +17,7 @@ const LoginC = () => {
             email: email,
             password: password,
           });
+
         } catch (err) {
           console.log(err);
         }

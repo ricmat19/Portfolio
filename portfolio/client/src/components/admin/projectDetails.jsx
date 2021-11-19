@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router";
 import { useParams } from "react-router-dom";
 import IndexAPI from "../../apis/indexAPI";
 import AdminHeaderC from "./header";
@@ -16,17 +17,23 @@ function importAll(projects) {
 const projectThumbnails = importAll(require.context("../../images/projects"));
 
 const ProjectDetailsC = () => {
-  let parameters = useParams();
 
+  const [loginStatus, setLoginStatus] = useState("");
   const [title, setTitle] = useState("");
   const [githubLink, setGithubLink] = useState("");
   const [thumbnails, setThumbnails] = useState([]);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
   const [techs, setTechs] = useState([]);
 
+  let parameters = useParams();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        
+        const loginResponse = await IndexAPI.get(`/login`);
+        setLoginStatus(loginResponse.data.data.loggedIn)
+
         setTitle(parameters.project.toLowerCase());
 
         //Fix: Add Github URL to DB
@@ -90,99 +97,103 @@ const ProjectDetailsC = () => {
     }
   };
 
-  return (
-    <div className="main">
-      <AdminHeaderC />
+  if(loginStatus){
+    return (
+      <div className="main">
+        <AdminHeaderC />
 
-      <div className="project-details-container">
-        <div className="title-div">
-          <p className="title">{title}</p>
-        </div>
-        <div className="grid project-details">
-          <div className="grid slider-div">
-            <div className="slider-arrow" onClick={() => slideThumbnailLeft()}>
-              <LeftArrowC />
+        <div className="project-details-container">
+          <div className="title-div">
+            <p className="title">{title}</p>
+          </div>
+          <div className="grid project-details">
+            <div className="grid slider-div">
+              <div className="slider-arrow" onClick={() => slideThumbnailLeft()}>
+                <LeftArrowC />
+              </div>
+              <div className="grid project-slide-div">
+                {thumbnails[0] !== undefined ? (
+                  <div className="grid image-container">
+                    <img
+                      className="grid project-image"
+                      src={thumbnails[thumbnailIndex].default}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="slider-arrow" onClick={() => slideThumbnailRight()}>
+                <RightArrowC />
+              </div>
             </div>
-            <div className="grid project-slide-div">
-              {thumbnails[0] !== undefined ? (
-                <div className="grid image-container">
-                  <img
-                    className="grid project-image"
-                    src={thumbnails[thumbnailIndex].default}
-                  />
+            <div className="grid project-tech-div">
+              {techs.map((tech, index) => {
+                return (
+                  <button key={index} className="tech-label">
+                    {tech}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="text-content-container">
+              <div className="info-container">
+                <div className="sub-title">about the project</div>
+                <div className="info-div">
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Explicabo itaque nulla deleniti aperiam animi rerum atque
+                    numquam ex quod inventore rem fugit possimus ab quibusdam vel
+                    sint, facere totam omnis? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Veniam velit omnis ducimus in.
+                    Aperiam aut possimus ullam consectetur ipsa cumque nesciunt
+                    et, quia laborum accusantium iste magni, non minus quod?
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Corporis, molestiae doloribus cupiditate magni sapiente
+                    nostrum voluptatem soluta nisi repellat quae voluptatibus
+                    accusantium magnam illo facere fugit maxime distinctio quis
+                    officia.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Explicabo itaque nulla deleniti aperiam animi rerum atque
+                    numquam ex quod inventore rem fugit possimus ab quibusdam vel
+                    sint, facere totam omnis? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Veniam velit omnis ducimus in.
+                    Aperiam aut possimus ullam consectetur ipsa cumque nesciunt
+                    et, quia laborum accusantium iste magni, non minus quod?
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Corporis, molestiae doloribus cupiditate magni sapiente
+                    nostrum voluptatem soluta nisi repellat quae voluptatibus
+                    accusantium magnam illo facere fugit maxime distinctio quis
+                    officia.
+                  </p>
                 </div>
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="slider-arrow" onClick={() => slideThumbnailRight()}>
-              <RightArrowC />
-            </div>
-          </div>
-          <div className="grid project-tech-div">
-            {techs.map((tech, index) => {
-              return (
-                <button key={index} className="tech-label">
-                  {tech}
-                </button>
-              );
-            })}
-          </div>
-          <div className="text-content-container">
-            <div className="info-container">
-              <div className="sub-title">about the project</div>
-              <div className="info-div">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Explicabo itaque nulla deleniti aperiam animi rerum atque
-                  numquam ex quod inventore rem fugit possimus ab quibusdam vel
-                  sint, facere totam omnis? Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Veniam velit omnis ducimus in.
-                  Aperiam aut possimus ullam consectetur ipsa cumque nesciunt
-                  et, quia laborum accusantium iste magni, non minus quod?
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corporis, molestiae doloribus cupiditate magni sapiente
-                  nostrum voluptatem soluta nisi repellat quae voluptatibus
-                  accusantium magnam illo facere fugit maxime distinctio quis
-                  officia.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Explicabo itaque nulla deleniti aperiam animi rerum atque
-                  numquam ex quod inventore rem fugit possimus ab quibusdam vel
-                  sint, facere totam omnis? Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Veniam velit omnis ducimus in.
-                  Aperiam aut possimus ullam consectetur ipsa cumque nesciunt
-                  et, quia laborum accusantium iste magni, non minus quod?
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corporis, molestiae doloribus cupiditate magni sapiente
-                  nostrum voluptatem soluta nisi repellat quae voluptatibus
-                  accusantium magnam illo facere fugit maxime distinctio quis
-                  officia.
-                </p>
               </div>
-            </div>
-            <div className="resource-container">
-              <div className="sub-title">Resources</div>
-              <div className="resources-div">
-                <ul>
-                  <li>
-                    <span className="project-resource">
-                      <a href={githubLink} target="_blank" rel="noreferrer">
-                        Github
-                      </a>
-                    </span>
-                  </li>
-                </ul>
+              <div className="resource-container">
+                <div className="sub-title">Resources</div>
+                <div className="resources-div">
+                  <ul>
+                    <li>
+                      <span className="project-resource">
+                        <a href={githubLink} target="_blank" rel="noreferrer">
+                          Github
+                        </a>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <AdminFooterC />
-    </div>
-  );
+        <AdminFooterC />
+      </div>
+    )
+  }else{
+    return(<Redirect to="/admin/login"/>)
+  }
 };
 
 export default ProjectDetailsC;

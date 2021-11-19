@@ -108,7 +108,6 @@ const AddSkillC = (props) => {
       <div className="grid skill-input">
         <label>ICON</label>
         <select onChange={(e) => setIcon(e.target.value)} name="icon">
-          {console.log(icons)}
           <option disabled selected>
             Select an Icon...
           </option>

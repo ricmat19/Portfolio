@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Redirect } from "react-router";
 import { useHistory } from "react-router-dom";
 import IndexAPI from "../../apis/indexAPI";
 import AdminHeaderC from "./header";
@@ -17,28 +18,24 @@ function importAll(projects) {
 const projectThumbnails = importAll(require.context("../../images/projects"));
 
 const PortfolioC = () => {
-  let history = useHistory();
 
   const currentProjectThumbnailArray = [];
 
+  const [loginStatus, setLoginStatus] = useState(false);
   const [createModal, setCreateModal] = useState("modal");
   const [updateModal, setUpdateModal] = useState("modal");
   const [deleteModal, setDeleteModal] = useState("modal");
   const [, setCreatedProject] = useState("");
   const [, setUpdatedProject] = useState("");
   const [deletedProject, setDeletedProject] = useState("");
-
   const [, setProjects] = useState();
-
   const [titles, setTitles] = useState([]);
   const [allThumbnails, setAllThumbnails] = useState([]);
   const [thumbnails, setThumbnails] = useState([]);
   const [technology, setTechnology] = useState([]);
   const [skills, setSkills] = useState([]);
-
   const [filterButtons, setFilterButtons] = useState("skill-buttons");
   const [filteredThumbnails, setFilteredThumbnails] = useState([]);
-
   const [currentTitle, setCurrentTitle] = useState("");
   const [, setCurrentThumbnails] = useState([]);
   const [, setCurrentTech] = useState([]);
@@ -46,6 +43,8 @@ const PortfolioC = () => {
   const createRef = useRef();
   const updateRef = useRef();
   const deleteRef = useRef();
+
+  let history = useHistory();
 
   const displayCreateModal = () => {
     setCreateModal("modal modal-active");
@@ -103,6 +102,10 @@ const PortfolioC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+
+        const loginResponse = await IndexAPI.get(`/login`);
+        setLoginStatus(loginResponse.data.data.loggedIn)
+
         document.addEventListener("mousedown", (event) => {
           if (
             createRef.current !== null &&
@@ -283,137 +286,141 @@ const PortfolioC = () => {
     }
   };
 
-  return (
-    <div className="main">
-      <AdminHeaderC />
-      <div className={createModal}>
-        <div ref={createRef} className="modal-content">
-          <CreateC
-            createModal={createModal}
-            createdProject={(createdProject) =>
-              setCreatedProject(createdProject)
-            }
-          />
-        </div>
-      </div>
-      <div className={updateModal}>
-        <div ref={updateRef} className="modal-content">
-          <UpdateC
-            updateModal={updateModal}
-            setUpdatedProject={(updateProject) =>
-              setUpdatedProject(updateProject)
-            }
-            title={currentTitle}
-            thumbnails={allThumbnails}
-            tech={technology}
-          />
-        </div>
-      </div>
-
-      <div className={deleteModal}>
-        <div ref={deleteRef} className="modal-content">
-          <DeleteC
-            deleteModal={deleteModal}
-            setDeletedProject={(deletedProject) =>
-              setDeletedProject(deletedProject)
-            }
-            title={deletedProject}
-          />
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="title-div">
-          <p className="title">portfolio</p>
-        </div>
-        <div className="create-project-div">
-          <button onClick={() => displayCreateModal()}>CREATE</button>
-          <div className="grid skill-filters">
-            <div className={filterButtons}>
-              {skills.map((skill, index) => {
-                // if(filter){
-                return (
-                  <button
-                    className="skill"
-                    key={index}
-                    onClick={() => filterProjects(skill)}
-                  >
-                    {skill}
-                  </button>
-                );
-                // }
-              })}
-            </div>
-            <img
-              className="filter-icon"
-              src="../../images/filter-solid.svg"
-              onClick={() => displayFilter()}
+  if(loginStatus){
+    return (
+      <div className="main">
+        <AdminHeaderC />
+        <div className={createModal}>
+          <div ref={createRef} className="modal-content">
+            <CreateC
+              createModal={createModal}
+              createdProject={(createdProject) =>
+                setCreatedProject(createdProject)
+              }
             />
           </div>
         </div>
-        <div className="portfolio-thumbnail-div">
-          {filteredThumbnails.map((thumbnail, thumbnailIndex) => {
-            return (
-              <div key={thumbnailIndex}>
-                <div className="project-buttons">
-                  <button
-                    onClick={() => displayUpdateModal(titles[thumbnailIndex])}
+        <div className={updateModal}>
+          <div ref={updateRef} className="modal-content">
+            <UpdateC
+              updateModal={updateModal}
+              setUpdatedProject={(updateProject) =>
+                setUpdatedProject(updateProject)
+              }
+              title={currentTitle}
+              thumbnails={allThumbnails}
+              tech={technology}
+            />
+          </div>
+        </div>
+
+        <div className={deleteModal}>
+          <div ref={deleteRef} className="modal-content">
+            <DeleteC
+              deleteModal={deleteModal}
+              setDeletedProject={(deletedProject) =>
+                setDeletedProject(deletedProject)
+              }
+              title={deletedProject}
+            />
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="title-div">
+            <p className="title">portfolio</p>
+          </div>
+          <div className="create-project-div">
+            <button onClick={() => displayCreateModal()}>CREATE</button>
+            <div className="grid skill-filters">
+              <div className={filterButtons}>
+                {skills.map((skill, index) => {
+                  // if(filter){
+                  return (
+                    <button
+                      className="skill"
+                      key={index}
+                      onClick={() => filterProjects(skill)}
+                    >
+                      {skill}
+                    </button>
+                  );
+                  // }
+                })}
+              </div>
+              <img
+                className="filter-icon"
+                src="../../images/filter-solid.svg"
+                onClick={() => displayFilter()}
+              />
+            </div>
+          </div>
+          <div className="portfolio-thumbnail-div">
+            {filteredThumbnails.map((thumbnail, thumbnailIndex) => {
+              return (
+                <div key={thumbnailIndex}>
+                  <div className="project-buttons">
+                    <button
+                      onClick={() => displayUpdateModal(titles[thumbnailIndex])}
+                    >
+                      UPDATE
+                    </button>
+                    <button
+                      onClick={() => displayDeleteModal(titles[thumbnailIndex])}
+                    >
+                      DELETE
+                    </button>
+                  </div>
+                  <div
+                    className="portfolio-item-div"
+                    key={thumbnailIndex}
+                    onClick={() =>
+                      history.push(`/admin/portfolio/${thumbnail.project}`)
+                    }
                   >
-                    UPDATE
-                  </button>
-                  <button
-                    onClick={() => displayDeleteModal(titles[thumbnailIndex])}
-                  >
-                    DELETE
-                  </button>
-                </div>
-                <div
-                  className="portfolio-item-div"
-                  key={thumbnailIndex}
-                  onClick={() =>
-                    history.push(`/admin/portfolio/${thumbnail.project}`)
-                  }
-                >
-                  <div className="portfolio-project">
-                    <img
-                      className="project-thumbnail"
-                      src={thumbnail.module.default}
-                    />
-                    <div className="thumbnail-overlay thumbnail-overlay--blur">
-                      <div className="thumbnail-title-div">
-                        {titles[thumbnailIndex].toLowerCase()}
-                      </div>
-                      <div className="grid buttons-div">
-                        <div className="tech-used">
-                          {technology.map((tech, techIndex) => {
-                            if (thumbnailIndex === techIndex) {
-                              return (
-                                <div
-                                  className="grid project-tech"
-                                  key={techIndex}
-                                >
-                                  {tech[titles[techIndex]][0].map(
-                                    (t, index) => {
-                                      return <button key={index}>{t}</button>;
-                                    }
-                                  )}
-                                </div>
-                              );
-                            }
-                          })}
+                    <div className="portfolio-project">
+                      <img
+                        className="project-thumbnail"
+                        src={thumbnail.module.default}
+                      />
+                      <div className="thumbnail-overlay thumbnail-overlay--blur">
+                        <div className="thumbnail-title-div">
+                          {titles[thumbnailIndex].toLowerCase()}
+                        </div>
+                        <div className="grid buttons-div">
+                          <div className="tech-used">
+                            {technology.map((tech, techIndex) => {
+                              if (thumbnailIndex === techIndex) {
+                                return (
+                                  <div
+                                    className="grid project-tech"
+                                    key={techIndex}
+                                  >
+                                    {tech[titles[techIndex]][0].map(
+                                      (t, index) => {
+                                        return <button key={index}>{t}</button>;
+                                      }
+                                    )}
+                                  </div>
+                                );
+                              }
+                            })}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+        <AdminFooterC />
       </div>
-      <AdminFooterC />
-    </div>
-  );
+    )
+  }else{
+    return(<Redirect to="/admin/login"/>)
+  }
 };
 
 export default PortfolioC;

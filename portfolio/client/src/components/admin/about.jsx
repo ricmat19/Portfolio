@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Redirect } from "react-router";
 import IndexAPI from "../../apis/indexAPI";
 import AdminHeaderC from "./header";
 import AdminFooterC from "./footer";
@@ -14,6 +15,8 @@ function importAll(icons) {
 const skillIcons = importAll(require.context("../../images/skills"));
 
 const AboutC = () => {
+
+  const [loginStatus, setLoginStatus] = useState(false);
   const [skillModal, setSkillModal] = useState("modal");
   const [newSkill, setNewSkill] = useState("");
   const [skills, setSkills] = useState([]);
@@ -23,7 +26,9 @@ const AboutC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // console.log(skillIcons[`bootstrap-brands.svg`])
+
+        const loginResponse = await IndexAPI.get(`/login`);
+        setLoginStatus(loginResponse.data.data.loggedIn)
 
         document.addEventListener("mousedown", (event) => {
           if (skillRef.current !== null) {
@@ -56,148 +61,152 @@ const AboutC = () => {
     setSkillModal("modal modal-active");
   };
 
-  return (
-    <div className="main">
-      <AdminHeaderC />
-      <div className={skillModal}>
-        <div ref={skillRef} className="modal-content">
-          <SkillC
-            skillModal={skillModal}
-            setNewSkill={(newSkill) => setNewSkill(newSkill)}
-          />
+  if(loginStatus){
+    return (
+      <div className="main">
+        <AdminHeaderC />
+        <div className={skillModal}>
+          <div ref={skillRef} className="modal-content">
+            <SkillC
+              skillModal={skillModal}
+              setNewSkill={(newSkill) => setNewSkill(newSkill)}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="container">
-        <div className="title-div">
-          <p className="title">about</p>
-        </div>
-        <div className="about-content-div">
-          <div className="profile-div">
-            <div className="profile-image-div">
-              <img className="profile-image" src="../images/about-image.jpg" />
+        <div className="container">
+          <div className="title-div">
+            <p className="title">about</p>
+          </div>
+          <div className="about-content-div">
+            <div className="profile-div">
+              <div className="profile-image-div">
+                <img className="profile-image" src="../images/about-image.jpg" />
+              </div>
+              <div className="info-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
+                  doloribus saepe, incidunt unde atque adipisci sint dignissimos
+                  dolorum quod provident eligendi! Labore, commodi sit! Quasi
+                  consequatur mollitia ad odit excepturi!
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
+                  doloribus saepe, incidunt unde atque adipisci sint dignissimos
+                  dolorum quod provident eligendi! Labore, commodi sit! Quasi
+                  consequatur mollitia ad odit excepturi!
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
+                  doloribus saepe, incidunt unde atque adipisci sint dignissimos
+                  dolorum quod provident eligendi! Labore, commodi sit! Quasi
+                  consequatur mollitia ad odit excepturi!
+                </p>
+              </div>
             </div>
-            <div className="info-div">
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
-                doloribus saepe, incidunt unde atque adipisci sint dignissimos
-                dolorum quod provident eligendi! Labore, commodi sit! Quasi
-                consequatur mollitia ad odit excepturi!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
-                doloribus saepe, incidunt unde atque adipisci sint dignissimos
-                dolorum quod provident eligendi! Labore, commodi sit! Quasi
-                consequatur mollitia ad odit excepturi!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
-                doloribus saepe, incidunt unde atque adipisci sint dignissimos
-                dolorum quod provident eligendi! Labore, commodi sit! Quasi
-                consequatur mollitia ad odit excepturi!
-              </p>
+            <div className="skills-category-container-div">
+              <div className="create-skill-div">
+                <button onClick={() => displaySkillModal()}>CREATE</button>
+              </div>
+              <div className="skill-category-div">
+                <div className="sub-title">MARKUP</div>
+                <div className="skill-div">
+                  {skills.map((skill, index) => {
+                    if (skill.category === "MARKUP") {
+                      return (
+                        <div key={index}>
+                          <img className="icon" src={skill.iconImage.default} />
+                          <div className="icon-label">{skill.skill}</div>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+              <div className="skill-category-div">
+                <div className="sub-title">STYLE</div>
+                <div className="skill-div">
+                  {skills.map((skill, index) => {
+                    if (skill.category === "STYLE") {
+                      return (
+                        <div key={index}>
+                          <img className="icon" src={skill.iconImage.default} />
+                          <div className="icon-label">{skill.skill}</div>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+              <div className="skill-category-div">
+                <div className="sub-title">FRONTEND</div>
+                <div className="skill-div">
+                  {skills.map((skill, index) => {
+                    if (skill.category === "FRONTEND") {
+                      return (
+                        <div key={index}>
+                          <img className="icon" src={skill.iconImage.default} />
+                          <div className="icon-label">{skill.skill}</div>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+              <div className="skill-category-div">
+                <div className="sub-title">BACKEND</div>
+                <div className="skill-div">
+                  {skills.map((skill, index) => {
+                    if (skill.category === "BACKEND") {
+                      return (
+                        <div key={index}>
+                          <img className="icon" src={skill.iconImage.default} />
+                          <div className="icon-label">{skill.skill}</div>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+              <div className="skill-category-div">
+                <div className="sub-title">DATABASE</div>
+                <div className="skill-div">
+                  {skills.map((skill, index) => {
+                    if (skill.category === "DATABASE") {
+                      return (
+                        <div key={index}>
+                          <img className="icon" src={skill.iconImage.default} />
+                          <div className="icon-label">{skill.skill}</div>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+              <div className="skill-category-div">
+                <div className="sub-title">OTHER</div>
+                <div className="skill-div">
+                  {skills.map((skill, index) => {
+                    if (skill.category === "OTHER") {
+                      return (
+                        <div key={index}>
+                          <img className="icon" src={skill.iconImage.default} />
+                          <div className="icon-label">{skill.skill}</div>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
             </div>
           </div>
-          <div className="skills-category-container-div">
-            <div className="create-skill-div">
-              <button onClick={() => displaySkillModal()}>CREATE</button>
-            </div>
-            <div className="skill-category-div">
-              <div className="sub-title">MARKUP</div>
-              <div className="skill-div">
-                {skills.map((skill, index) => {
-                  if (skill.category === "MARKUP") {
-                    return (
-                      <div key={index}>
-                        <img className="icon" src={skill.iconImage.default} />
-                        <div className="icon-label">{skill.skill}</div>
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
-            <div className="skill-category-div">
-              <div className="sub-title">STYLE</div>
-              <div className="skill-div">
-                {skills.map((skill, index) => {
-                  if (skill.category === "STYLE") {
-                    return (
-                      <div key={index}>
-                        <img className="icon" src={skill.iconImage.default} />
-                        <div className="icon-label">{skill.skill}</div>
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
-            <div className="skill-category-div">
-              <div className="sub-title">FRONTEND</div>
-              <div className="skill-div">
-                {skills.map((skill, index) => {
-                  if (skill.category === "FRONTEND") {
-                    return (
-                      <div key={index}>
-                        <img className="icon" src={skill.iconImage.default} />
-                        <div className="icon-label">{skill.skill}</div>
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
-            <div className="skill-category-div">
-              <div className="sub-title">BACKEND</div>
-              <div className="skill-div">
-                {skills.map((skill, index) => {
-                  if (skill.category === "BACKEND") {
-                    return (
-                      <div key={index}>
-                        <img className="icon" src={skill.iconImage.default} />
-                        <div className="icon-label">{skill.skill}</div>
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
-            <div className="skill-category-div">
-              <div className="sub-title">DATABASE</div>
-              <div className="skill-div">
-                {skills.map((skill, index) => {
-                  if (skill.category === "DATABASE") {
-                    return (
-                      <div key={index}>
-                        <img className="icon" src={skill.iconImage.default} />
-                        <div className="icon-label">{skill.skill}</div>
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
-            <div className="skill-category-div">
-              <div className="sub-title">OTHER</div>
-              <div className="skill-div">
-                {skills.map((skill, index) => {
-                  if (skill.category === "OTHER") {
-                    return (
-                      <div key={index}>
-                        <img className="icon" src={skill.iconImage.default} />
-                        <div className="icon-label">{skill.skill}</div>
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
-          </div>
         </div>
+        <AdminFooterC />
       </div>
-      <AdminFooterC />
-    </div>
-  );
+    )
+  }else{
+    return(<Redirect to="/admin/login"/>)
+  }
 };
 
 export default AboutC;
