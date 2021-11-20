@@ -4,8 +4,6 @@ const router = express.Router();
 router.get("/login", async (req, res) => {
   try {
 
-    console.log(req.session.user)
-
     if(req.session.user === process.env.EMAIL){
       console.log("You are logged in")
       res.status(201).json({

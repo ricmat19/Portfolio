@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const MySQLStore = require('express-mysql-session')(session);
 const path = require("path");
 const app = express();
 const aboutRouter = require("./routes/about");
@@ -26,10 +27,19 @@ app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: false }));
 
+var options = {
+	host: process.env.MSQLHOST,
+	port: process.env.MSQLPORT,
+	user: process.env.MSQLUSER,
+	password: process.env.MSQLPASSWORD,
+	database: process.env.MSQLDATABASE
+};
+
 app.use(
   session({
     key: "user",
     secret: [process.env.COOKIE_KEY],
+    store: new MySQLStore(options),
     resave: false,
     saveUninitialized: false
   })
