@@ -35,6 +35,8 @@ var options = {
 	database: process.env.MSQLDATABASE
 };
 
+app.set("trust proxy", 1);
+
 app.use(
   session({
     key: "user",
