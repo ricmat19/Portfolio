@@ -21,7 +21,7 @@ const PortfolioC = () => {
 
   const currentProjectThumbnailArray = [];
 
-  const [loginStatus, setLoginStatus] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(true);
   const [createModal, setCreateModal] = useState("modal");
   const [updateModal, setUpdateModal] = useState("modal");
   const [deleteModal, setDeleteModal] = useState("modal");

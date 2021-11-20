@@ -18,7 +18,7 @@ const projectThumbnails = importAll(require.context("../../images/projects"));
 
 const ProjectDetailsC = () => {
 
-  const [loginStatus, setLoginStatus] = useState("");
+  const [loginStatus, setLoginStatus] = useState(true);
   const [title, setTitle] = useState("");
   const [githubLink, setGithubLink] = useState("");
   const [thumbnails, setThumbnails] = useState([]);
@@ -30,7 +30,7 @@ const ProjectDetailsC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        
+
         const loginResponse = await IndexAPI.get(`/login`);
         setLoginStatus(loginResponse.data.data.loggedIn)
 

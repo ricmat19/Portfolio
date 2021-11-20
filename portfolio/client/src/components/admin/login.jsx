@@ -1,14 +1,16 @@
 import React, { useRef, useState } from "react";
+import { useHistory } from "react-router";
 import IndexAPI from "../../apis/indexAPI";
 
 const LoginC = () => {
 
-    // const [loginStatus, setLoginStatus] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const emailInput = useRef(null);
     const passwordInput = useRef(null);
+
+    const history = useHistory();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -17,6 +19,12 @@ const LoginC = () => {
             email: email,
             password: password,
           });
+
+          const loginResponse = await IndexAPI.get(`/login`);
+          console.log()
+          if(loginResponse.data.data.loggedIn){
+            history.push('/admin')
+          }
 
         } catch (err) {
           console.log(err);

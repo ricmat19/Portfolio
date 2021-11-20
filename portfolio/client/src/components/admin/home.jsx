@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router";
 import AdminHeaderC from "./header";
 import AdminFooterC from "./footer";
-import indexAPI from "../../apis/indexAPI";
+import IndexAPI from "../../apis/indexAPI";
 
 const HomeC = () => {
 
-  const [loginStatus, setLoginStatus] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
 
-        const loginResponse = await indexAPI.get(`/login`);
-        setLoginStatus(loginResponse.data.data.loggedIn)
+        const loginResponse = await IndexAPI.get(`/login`);
+        setLoginStatus(loginResponse.data.data.loggedIn);
 
       } catch (err) {
         console.log(err);

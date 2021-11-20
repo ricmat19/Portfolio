@@ -3,6 +3,7 @@ import IndexAPI from "../../apis/indexAPI";
 import PropTypes from "prop-types";
 
 const AddSkillC = (props) => {
+  
   const [icons, setIcons] = useState([]);
   const [category, setCategory] = useState("");
   const [skill, setSkill] = useState("");

@@ -16,7 +16,7 @@ const skillIcons = importAll(require.context("../../images/skills"));
 
 const AboutC = () => {
 
-  const [loginStatus, setLoginStatus] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(true);
   const [skillModal, setSkillModal] = useState("modal");
   const [newSkill, setNewSkill] = useState("");
   const [skills, setSkills] = useState([]);
@@ -28,7 +28,7 @@ const AboutC = () => {
       try {
 
         const loginResponse = await IndexAPI.get(`/login`);
-        setLoginStatus(loginResponse.data.data.loggedIn)
+        setLoginStatus(loginResponse.data.data.loggedIn);
 
         document.addEventListener("mousedown", (event) => {
           if (skillRef.current !== null) {
