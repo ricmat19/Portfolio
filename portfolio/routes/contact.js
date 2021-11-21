@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 const clientId = process.env.GOOGLE_API_CLIENT_ID;
 const clientSecret = process.env.GOOGLE_API_CLIENT_SECRET;
 const redirectURI = process.env.GOOGLE_API_REDIRECT_URI;
-const refreshToken = process.env.GMAIL_REFRESH_TOKEN;
+const refreshToken = process.env.GOOGLE_API_REFRESH_TOKEN;
 
 const oAuth2Client = new google.auth.OAuth2(
   clientId,
@@ -51,8 +51,8 @@ router.post("/contact", async (req, res) => {
         </ul>`;
 
     let mailOptions = {
-      from: process.env.EMAIL,
-      to: req.body.email,
+      from: req.body.email,
+      to: process.env.EMAIL,
       subject: req.body.subject,
       text: output,
       html: html,

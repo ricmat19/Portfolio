@@ -84,7 +84,7 @@ const ContactC = () => {
                 required
               ></textarea>
             </div>
-            <div className="">
+            <div className="form-button-div">
               <button onClick={handleSubmit} type="submit" className="">
                 submit
               </button>
