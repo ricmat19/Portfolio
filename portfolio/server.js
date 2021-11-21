@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const MySQLStore = require('express-mysql-session')(session);
+const MySQLStore = require("express-mysql-session")(session);
 const path = require("path");
 const app = express();
 const aboutRouter = require("./routes/about");
@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: [process.env.ORIGIN, process.env.REACT_APP_PORTFOLIO_API],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+    credentials: true,
   })
 );
 
@@ -28,11 +28,11 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 var options = {
-	host: process.env.MSQLHOST,
-	port: process.env.MSQLPORT,
-	user: process.env.MSQLUSER,
-	password: process.env.MSQLPASSWORD,
-	database: process.env.MSQLDATABASE
+  host: process.env.MSQLHOST,
+  port: process.env.MSQLPORT,
+  user: process.env.MSQLUSER,
+  password: process.env.MSQLPASSWORD,
+  database: process.env.MSQLDATABASE,
 };
 
 app.set("trust proxy", 1);
@@ -45,11 +45,11 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax', // must be 'none' to enable cross-site delivery
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // must be 'none' to enable cross-site delivery
       secure: process.env.NODE_ENV === "production", // must be true if sameSite='none'
-    }
+    },
   })
-)
+);
 
 app.use(aboutRouter);
 app.use(contactRouter);
@@ -59,7 +59,6 @@ app.use(loginRouter);
 
 //Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
-
   require("dotenv").config();
 
   app.use(express.static("client/build"));
@@ -67,7 +66,6 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
-  
 }
 
 app.listen(process.env.PORT, () => {

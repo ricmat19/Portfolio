@@ -5,16 +5,13 @@ import AdminFooterC from "./footer";
 import IndexAPI from "../../apis/indexAPI";
 
 const HomeC = () => {
-
   const [loginStatus, setLoginStatus] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         const loginResponse = await IndexAPI.get(`/login`);
         setLoginStatus(loginResponse.data.data.loggedIn);
-
       } catch (err) {
         console.log(err);
       }
@@ -22,17 +19,17 @@ const HomeC = () => {
     fetchData();
   }, []);
 
-  if(loginStatus){
+  if (loginStatus) {
     return (
       <div className="main">
         <AdminHeaderC />
         <div className="home-page-div"></div>
         <AdminFooterC />
       </div>
-    )
-    }else{
-      return(<Redirect to="/admin/login"/>)
-    }
+    );
+  } else {
+    return <Redirect to="/admin/login" />;
+  }
 };
 
 export default HomeC;

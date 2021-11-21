@@ -18,7 +18,6 @@ function importAll(projects) {
 const projectThumbnails = importAll(require.context("../../images/projects"));
 
 const PortfolioC = () => {
-
   const currentProjectThumbnailArray = [];
 
   const [loginStatus, setLoginStatus] = useState(true);
@@ -102,9 +101,8 @@ const PortfolioC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         const loginResponse = await IndexAPI.get(`/login`);
-        setLoginStatus(loginResponse.data.data.loggedIn)
+        setLoginStatus(loginResponse.data.data.loggedIn);
 
         document.addEventListener("mousedown", (event) => {
           if (
@@ -286,7 +284,7 @@ const PortfolioC = () => {
     }
   };
 
-  if(loginStatus){
+  if (loginStatus) {
     return (
       <div className="main">
         <AdminHeaderC />
@@ -417,9 +415,9 @@ const PortfolioC = () => {
         </div>
         <AdminFooterC />
       </div>
-    )
-  }else{
-    return(<Redirect to="/admin/login"/>)
+    );
+  } else {
+    return <Redirect to="/admin/login" />;
   }
 };
 

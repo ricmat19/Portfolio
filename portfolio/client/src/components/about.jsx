@@ -38,8 +38,7 @@ const AboutC = () => {
     fetchData();
   }, [newSkill]);
 
-  () => {
-  };
+  () => {};
 
   return (
     <div className="main">

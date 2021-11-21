@@ -17,7 +17,6 @@ function importAll(projects) {
 const projectThumbnails = importAll(require.context("../../images/projects"));
 
 const ProjectDetailsC = () => {
-
   const [loginStatus, setLoginStatus] = useState(true);
   const [title, setTitle] = useState("");
   const [githubLink, setGithubLink] = useState("");
@@ -30,9 +29,8 @@ const ProjectDetailsC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         const loginResponse = await IndexAPI.get(`/login`);
-        setLoginStatus(loginResponse.data.data.loggedIn)
+        setLoginStatus(loginResponse.data.data.loggedIn);
 
         setTitle(parameters.project.toLowerCase());
 
@@ -97,7 +95,7 @@ const ProjectDetailsC = () => {
     }
   };
 
-  if(loginStatus){
+  if (loginStatus) {
     return (
       <div className="main">
         <AdminHeaderC />
@@ -108,7 +106,10 @@ const ProjectDetailsC = () => {
           </div>
           <div className="grid project-details">
             <div className="grid slider-div">
-              <div className="slider-arrow" onClick={() => slideThumbnailLeft()}>
+              <div
+                className="slider-arrow"
+                onClick={() => slideThumbnailLeft()}
+              >
                 <LeftArrowC />
               </div>
               <div className="grid project-slide-div">
@@ -123,7 +124,10 @@ const ProjectDetailsC = () => {
                   ""
                 )}
               </div>
-              <div className="slider-arrow" onClick={() => slideThumbnailRight()}>
+              <div
+                className="slider-arrow"
+                onClick={() => slideThumbnailRight()}
+              >
                 <RightArrowC />
               </div>
             </div>
@@ -143,8 +147,8 @@ const ProjectDetailsC = () => {
                   <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Explicabo itaque nulla deleniti aperiam animi rerum atque
-                    numquam ex quod inventore rem fugit possimus ab quibusdam vel
-                    sint, facere totam omnis? Lorem ipsum dolor sit amet
+                    numquam ex quod inventore rem fugit possimus ab quibusdam
+                    vel sint, facere totam omnis? Lorem ipsum dolor sit amet
                     consectetur adipisicing elit. Veniam velit omnis ducimus in.
                     Aperiam aut possimus ullam consectetur ipsa cumque nesciunt
                     et, quia laborum accusantium iste magni, non minus quod?
@@ -157,8 +161,8 @@ const ProjectDetailsC = () => {
                   <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Explicabo itaque nulla deleniti aperiam animi rerum atque
-                    numquam ex quod inventore rem fugit possimus ab quibusdam vel
-                    sint, facere totam omnis? Lorem ipsum dolor sit amet
+                    numquam ex quod inventore rem fugit possimus ab quibusdam
+                    vel sint, facere totam omnis? Lorem ipsum dolor sit amet
                     consectetur adipisicing elit. Veniam velit omnis ducimus in.
                     Aperiam aut possimus ullam consectetur ipsa cumque nesciunt
                     et, quia laborum accusantium iste magni, non minus quod?
@@ -190,9 +194,9 @@ const ProjectDetailsC = () => {
 
         <AdminFooterC />
       </div>
-    )
-  }else{
-    return(<Redirect to="/admin/login"/>)
+    );
+  } else {
+    return <Redirect to="/admin/login" />;
   }
 };
 

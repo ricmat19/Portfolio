@@ -49,20 +49,17 @@ router.post("/skill/add-skill", async (req, res) => {
 //Get all skills from the DB
 router.get("/skills", async (req, res) => {
   try {
-    await db.query(
-      "SELECT * FROM skills",
-      function (err, result) {
-        if (err) throw err;
+    await db.query("SELECT * FROM skills", function (err, result) {
+      if (err) throw err;
 
-        res.status(200).json({
-          status: "success",
-          results: result,
-          data: {
-            skills: result,
-          },
-        });
-      }
-    );
+      res.status(200).json({
+        status: "success",
+        results: result,
+        data: {
+          skills: result,
+        },
+      });
+    });
   } catch (err) {
     console.log(err);
   }

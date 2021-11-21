@@ -34,9 +34,7 @@ router.post("/projects/add-project", async (req, res) => {
     }
 
     if (uniqueProject === true) {
-      db.query(`INSERT INTO projects (project) VALUES (?)`, [
-        req.body.project,
-      ]);
+      db.query(`INSERT INTO projects (project) VALUES (?)`, [req.body.project]);
 
       for (let i = 0; i < req.body.thumbnails.length; i++) {
         if (req.body.thumbnails[i] === req.body.primaryImage) {
@@ -75,10 +73,7 @@ router.put("/projects/update-project", async (req, res) => {
       req.body.oldTitle,
     ]);
 
-    db.query(
-      `DELETE FROM project_images WHERE project=?`,
-      [req.body.title]
-    );
+    db.query(`DELETE FROM project_images WHERE project=?`, [req.body.title]);
 
     for (let i = 0; i < req.body.projectFiles.length; i++) {
       if (req.body.projectFiles[i] === req.body.primaryImage) {
@@ -94,16 +89,13 @@ router.put("/projects/update-project", async (req, res) => {
       }
     }
 
-    db.query(
-      `DELETE FROM project_tech WHERE project=?`,
-      [req.body.title]
-    );
+    db.query(`DELETE FROM project_tech WHERE project=?`, [req.body.title]);
 
     for (let i = 0; i < req.body.projectSkills.length; i++) {
-      db.query(
-        `INSERT INTO project_tech (project, technology) VALUES (?, ?)`,
-        [req.body.title, req.body.projectSkills[i]]
-      );
+      db.query(`INSERT INTO project_tech (project, technology) VALUES (?, ?)`, [
+        req.body.title,
+        req.body.projectSkills[i],
+      ]);
     }
 
     res.status(201).json({
@@ -117,10 +109,7 @@ router.put("/projects/update-project", async (req, res) => {
 //Delete a collection item
 router.delete("/admin/portfolio/:title/delete", async (req, res) => {
   try {
-    db.query(
-      "DELETE FROM projects WHERE project=?",
-      [req.params.title]
-    );
+    db.query("DELETE FROM projects WHERE project=?", [req.params.title]);
     res.status(204).json({
       status: "success",
     });

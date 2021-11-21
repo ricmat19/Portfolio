@@ -42,21 +42,21 @@ a {
   align-content: center;
 }
 
-.login-inputs{
+.login-inputs {
   display: grid;
   gap: 10px;
   width: 300px;
 }
 
-.login-header{
+.login-header {
   text-align: center;
 }
 
-.form-button-div{
+.form-button-div {
   text-align: center;
 }
 
-.form-button{
+.form-button {
   border: white 3px solid;
 }
 

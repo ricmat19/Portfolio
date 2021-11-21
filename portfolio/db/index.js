@@ -14,8 +14,8 @@ const db = mysql.createPool({
   database: process.env.MSQLDATABASE,
 });
 
-if(db){
-  console.log("Database Connected")
+if (db) {
+  console.log("Database Connected");
 }
 
 module.exports = db;

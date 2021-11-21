@@ -15,7 +15,6 @@ function importAll(icons) {
 const skillIcons = importAll(require.context("../../images/skills"));
 
 const AboutC = () => {
-
   const [loginStatus, setLoginStatus] = useState(true);
   const [skillModal, setSkillModal] = useState("modal");
   const [newSkill, setNewSkill] = useState("");
@@ -26,7 +25,6 @@ const AboutC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         const loginResponse = await IndexAPI.get(`/login`);
         setLoginStatus(loginResponse.data.data.loggedIn);
 
@@ -61,7 +59,7 @@ const AboutC = () => {
     setSkillModal("modal modal-active");
   };
 
-  if(loginStatus){
+  if (loginStatus) {
     return (
       <div className="main">
         <AdminHeaderC />
@@ -81,7 +79,10 @@ const AboutC = () => {
           <div className="about-content-div">
             <div className="profile-div">
               <div className="profile-image-div">
-                <img className="profile-image" src="../images/about-image.jpg" />
+                <img
+                  className="profile-image"
+                  src="../images/about-image.jpg"
+                />
               </div>
               <div className="info-div">
                 <p>
@@ -203,9 +204,9 @@ const AboutC = () => {
         </div>
         <AdminFooterC />
       </div>
-    )
-  }else{
-    return(<Redirect to="/admin/login"/>)
+    );
+  } else {
+    return <Redirect to="/admin/login" />;
   }
 };
 

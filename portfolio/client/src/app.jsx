@@ -25,7 +25,11 @@ const App = () => {
           <Route exact path="/admin/login" component={AdminLogin} />
           <Route exact path="/admin" component={AdminHome} />
           <Route exact path="/admin/portfolio" component={AdminPortfolio} />
-          <Route exact path="/admin/portfolio/:project" component={AdminProjectDetails} />
+          <Route
+            exact
+            path="/admin/portfolio/:project"
+            component={AdminProjectDetails}
+          />
           <Route exact path="/admin/about" component={AdminAbout} />
         </Router>
       </div>
