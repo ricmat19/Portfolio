@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import IndexAPI from "../apis/indexAPI";
-import HeaderC from "./header";
-import FooterC from "./footer";
+// import HeaderC from "./header";
+// import FooterC from "./footer";
 
 const ContactC = () => {
   const [name, setName] = useState("");
@@ -34,8 +34,8 @@ const ContactC = () => {
   };
 
   return (
-    <div className="main">
-      <HeaderC />
+    <div className="main grid">
+      {/* <HeaderC /> */}
       <div className="container">
         <div className="title-div">
           <p className="title">contact</p>
@@ -92,7 +92,7 @@ const ContactC = () => {
           </form>
         </div>
       </div>
-      <FooterC />
+      {/* <FooterC /> */}
     </div>
   );
 };

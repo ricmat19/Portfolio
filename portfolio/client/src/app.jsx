@@ -1,27 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./routes/home";
-import About from "./routes/about";
-import Portfolio from "./routes/portfolio";
-import ProjectDetails from "./routes/projectDetails";
-import Contact from "./routes/contact";
+// import About from "./routes/about";
+// import Portfolio from "./routes/portfolio";
+// import ProjectDetails from "./routes/projectDetails";
+// import Contact from "./routes/contact";
 import AdminLogin from "./routes/admin/login";
 import AdminHome from "./routes/admin/home";
 import AdminPortfolio from "./routes/admin/portfolio";
 import AdminProjectDetails from "./routes/admin/projectDetails";
 import AdminAbout from "./routes/admin/about.jsx";
-import { PortfolioContextProvider } from "./context/portfolio";
+// import { PortfolioContextProvider } from "./context/portfolio";
 
 const App = () => {
   return (
-    <PortfolioContextProvider>
+    // <PortfolioContextProvider>
       <div>
         <Router>
           <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
+          {/* <Route exact path="/about" component={About} />
           <Route exact path="/portfolio" component={Portfolio} />
           <Route exact path="/portfolio/:project" component={ProjectDetails} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/contact" component={Contact} /> */}
           <Route exact path="/admin/login" component={AdminLogin} />
           <Route exact path="/admin" component={AdminHome} />
           <Route exact path="/admin/portfolio" component={AdminPortfolio} />
@@ -33,7 +33,7 @@ const App = () => {
           <Route exact path="/admin/about" component={AdminAbout} />
         </Router>
       </div>
-    </PortfolioContextProvider>
+    // </PortfolioContextProvider>
   );
 };
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import IndexAPI from "../apis/indexAPI";
-import HeaderC from "./header";
-import FooterC from "./footer";
+// import HeaderC from "./header";
+// import FooterC from "./footer";
 
 function importAll(projects) {
   let images = {};
@@ -207,9 +207,8 @@ const PortfolioC = () => {
   };
 
   return (
-    <div className="main">
-      <HeaderC />
-
+    <div className="main grid">
+      {/* <HeaderC /> */}
       <div className="container">
         <div className="title-div">
           <p className="title">portfolio</p>
@@ -286,7 +285,7 @@ const PortfolioC = () => {
           })}
         </div>
       </div>
-      <FooterC />
+      {/* <FooterC /> */}
     </div>
   );
 };

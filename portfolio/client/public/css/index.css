@@ -14,6 +14,7 @@ body {
   --y: 0px;
   background-position: center var(--y);
   transition: 1.5s ease;
+  height: calc(100vh - 92px);
 }
 
 .home-page-div:hover {
@@ -25,12 +26,6 @@ body {
 a {
   text-decoration: none;
   color: black;
-}
-
-.main {
-  display: grid;
-  height: 100vh;
-  grid-template-rows: auto 1fr auto;
 }
 
 .login-main {
@@ -99,10 +94,6 @@ textarea {
   text-align: center;
 }
 
-.title {
-  margin-bottom: 20px;
-}
-
 .about-content-div {
   margin: 0 200px;
   display: grid;
@@ -164,6 +155,8 @@ textarea {
 
 .profile-div {
   width: fit-content;
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .profile-image-div {
@@ -189,7 +182,6 @@ textarea {
 .skill-category-div {
   border: black 3px solid;
   padding: 10px;
-  margin: 30px 0;
 }
 
 .sub-title {
@@ -239,7 +231,7 @@ textarea {
 .portfolio-thumbnail-div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 700px));
-  margin: 0 40px 40px 40px;
+  margin: 0 40px 0 40px;
   justify-content: center;
   gap: 30px;
 }
@@ -441,7 +433,11 @@ button {
 }
 
 .skills-category-container-div {
-  margin-top: -30px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 50px;
+  margin: 0 200px;
+  margin-top: 40px
 }
 
 .image-checkbox-list {

@@ -1,39 +1,39 @@
-import React, { createContext } from "react";
-import PropTypes from "prop-types";
+// import React, { createContext } from "react";
+// import PropTypes from "prop-types";
 
-export const PortfolioContext = createContext();
+// export const PortfolioContext = createContext();
 
-export const PortfolioContextProvider = (props) => {
-  // const [collection, setCollection] = useState([]);
-  // const [selectedItem, setSelectedItem] = useState(null);
-  // const [user, setUser]  = useState([]);
+// export const PortfolioContextProvider = (props) => {
+//   // const [collection, setCollection] = useState([]);
+//   // const [selectedItem, setSelectedItem] = useState(null);
+//   // const [user, setUser]  = useState([]);
 
-  // const createItem = (item) => {
-  //     setCollection([...collection, item])
-  // }
+//   // const createItem = (item) => {
+//   //     setCollection([...collection, item])
+//   // }
 
-  // const createUser = (newUser) => {
-  //     setUser([...user, newUser])
-  // }
+//   // const createUser = (newUser) => {
+//   //     setUser([...user, newUser])
+//   // }
 
-  return (
-    <PortfolioContext.Provider
-      value={
-        {
-          // collection: collection,
-          // setCollection: setCollection, createItem,
-          // selectedItem: selectedItem,
-          // setSelectedItem: setSelectedItem,
-          // user: user,
-          // setUser: setUser, createUser
-        }
-      }
-    >
-      {props.children}
-    </PortfolioContext.Provider>
-  );
-};
+//   return (
+//     <PortfolioContext.Provider
+//       value={
+//         {
+//           // collection: collection,
+//           // setCollection: setCollection, createItem,
+//           // selectedItem: selectedItem,
+//           // setSelectedItem: setSelectedItem,
+//           // user: user,
+//           // setUser: setUser, createUser
+//         }
+//       }
+//     >
+//       {props.children}
+//     </PortfolioContext.Provider>
+//   );
+// };
 
-PortfolioContextProvider.propTypes = {
-  children: PropTypes.any,
-};
+// PortfolioContextProvider.propTypes = {
+//   children: PropTypes.any,
+// };
