@@ -1,7 +1,6 @@
 import React from "react";
 
 const AboutC = () => {
-
   return (
     <div className="main grid">
       <div className="container">
@@ -28,8 +27,7 @@ const AboutC = () => {
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
               doloribus saepe, incidunt unde atque adipisci sint dignissimos
-              dolorum quod provident eligendi! Labore, commodi sit! Quasi
-              consequatur mollitia ad odit excepturi!
+              dolorum quod provident eligendi! Labore, commodi sit! Quasi!
             </p>
           </div>
         </div>

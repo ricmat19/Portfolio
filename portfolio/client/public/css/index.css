@@ -47,6 +47,10 @@ a {
   text-align: center;
 }
 
+.form-label{
+  color: black
+}
+
 .form-button-div {
   text-align: center;
 }
@@ -98,12 +102,10 @@ textarea {
   margin: 0 200px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 50px;
 }
 
 .icon {
   width: 75px;
-  min-height: 100px;
 }
 
 .icon:hover {
@@ -170,6 +172,11 @@ textarea {
 .info-div,
 .resources-div {
   text-align: justify;
+  margin: 0 75px;
+}
+
+.info-div p{
+  margin-top: 0;
 }
 
 .thumbnail-title-div {
@@ -513,4 +520,29 @@ button {
   width: 50px;
   padding: 30px;
   cursor: pointer;
+}
+
+.skills-container{
+  grid-template-columns: auto auto auto auto auto;
+  margin: 0 250px;
+}
+
+.icon-container{
+  text-align: center;
+  margin: 10px;
+  align-self: center;
+}
+
+#skills, #contact{
+  background-color: black;
+  color: white;
+  margin-top: 50px;
+}
+
+#contact{
+  height: 100vh;
+}
+
+#skills{
+  padding: 50px 0;
 }
