@@ -12,8 +12,11 @@ const HomeC = () => {
       <section id="home" className="grid">
         <div className="home-page-div">
           <div className="grid home-title">
-            <div>Ricardo</div>
-            <div>Del Cueto</div>
+            <div>ricardo</div>
+            <div>del cueto</div>
+            <a className="resume-div" target="_blank" href="Resume.pdf">
+              <button className="resume-button">resume</button>
+            </a>
           </div>
         </div>
       </section>

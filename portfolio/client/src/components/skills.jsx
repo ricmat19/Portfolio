@@ -91,13 +91,6 @@ const SkillsC = () => {
         <div className="icon-container">
           <img
             className="icon"
-            src="../images/skills/mongodb.svg"
-          />
-          <div>MONGODB</div>
-        </div>
-        <div className="icon-container">
-          <img
-            className="icon"
             src="../images/skills/typescript.svg"
           />
           <div>TYPESCRIPT</div>
@@ -116,13 +109,9 @@ const SkillsC = () => {
         <div className="icon-container">
           <img
             className="icon"
-            src="../images/skills/github.svg"
+            src="../images/skills/git.svg"
           />
-          <div>GITHUB</div>
-        </div>
-        <div className="icon-container">
-          <img className="icon" src="../images/skills/heroku.svg" />
-          <div>HEROKU</div>
+          <div>GIT</div>
         </div>
         <div className="icon-container">
           <img
@@ -132,7 +121,7 @@ const SkillsC = () => {
           <div>VISUAL STUDIO</div>
         </div>
         <div className="icon-container">
-          <img className="icon" src="../images/skills/krita.svg" />
+          <img className="icon" src="../images/skills/krita.png" />
           <div>KRITA</div>
         </div>
       </div>

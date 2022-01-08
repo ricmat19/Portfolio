@@ -3,7 +3,7 @@ import React from "react";
 const FooterC = () => {
   return (
     <div className="grid footer">
-      <div>Ricardo Del Cueto</div>
+      <div>ricardo del cueto</div>
       <div></div>
       <div className="grid footer-nav">
         <a target="_blank" href="https://www.linkedin.com/in/rick-del-cueto-353393131/" rel="noreferrer">

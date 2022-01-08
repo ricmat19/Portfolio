@@ -75,6 +75,8 @@ textarea {
   padding: 10px;
   outline: none;
   font-family: "Rajdhani";
+  font-size: 15px;
+  resize: none;
 }
 
 .navbar {
@@ -170,7 +172,7 @@ textarea {
 .info-div,
 .resources-div {
   text-align: justify;
-  margin: 0 75px;
+  margin-right: 75px;
 }
 
 .info-div p {
@@ -217,14 +219,35 @@ textarea {
   justify-content: center;
 }
 
+.resume-div{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.resume-button{
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.contact-form-button{
+  padding: 10px 20px;
+  font-size: 20px;
+  margin: 20px 0;
+}
+
 .contact-form {
   display: grid;
   justify-content: center;
   border-style: none;
-  background: rgb(243, 243, 243);
-  padding: 40px;
+  background: rgb(218, 218, 218);
+  padding: 40px 40px 0 40px;
   grid-template-columns: repeat(1, minmax(0px, 800px));
 }
+
+
 
 .contact-container {
   display: grid;
@@ -233,8 +256,12 @@ textarea {
 
 .subject-line {
   display: grid;
-  grid-template-columns: 75px auto;
   margin: 15px 0;
+}
+
+.textarea-subject-line {
+  display: grid;
+  margin-top: 15px;
 }
 
 .portfolio-thumbnail-div {
@@ -403,6 +430,7 @@ button {
   width: auto;
   padding: 5px 10px;
   margin: 5px;
+  font-size: 15px;
 }
 
 .project-creation-checkbox-div {
