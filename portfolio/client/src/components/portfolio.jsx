@@ -211,20 +211,20 @@ const PortfolioC = () => {
       {/* <HeaderC /> */}
       <div className="container">
         <div className="title-div">
-          <p className="title">portfolio</p>
+          <p className="title">projects</p>
         </div>
         <div className="create-project-div">
           <div className="grid skill-filters">
             {/* <div className={filterButtons}> */}
               {skills.map((skill, index) => {
                 return (
-                  <button
+                  <div
                     className="skill"
                     key={index}
                     onClick={() => filterProjects(skill)}
                   >
                     {skill}
-                  </button>
+                  </div>
                 );
               })}
             {/* </div> */}

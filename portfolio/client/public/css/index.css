@@ -112,10 +112,31 @@ textarea {
   cursor: pointer;
 }
 
+.skill {
+  justify-self: center;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  padding: 15px 0;
+  /* -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 2s; */
+}
+
+.skill:hover{
+  font-weight: 700;
+}
+
+/* .create-project-div {
+  margin-top: -30px;
+  margin-right: 40px;
+  text-align: right;
+} */
+
 .skill-filters {
-  grid-template-columns: auto auto;
-  justify-content: right;
-  margin: 5px 0;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin: 15px;
 }
 
 .skill-buttons {
@@ -142,13 +163,6 @@ textarea {
   }
 }
 
-.skill {
-  -webkit-animation: slide 0.5s forwards;
-  -webkit-animation-delay: 2s;
-  animation: slide 0.5s forwards;
-  animation-delay: 2s;
-}
-
 .about-container{
   display: grid;
 }
@@ -157,8 +171,9 @@ textarea {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 40px;
-  margin: 0 50px;
   justify-content: center;
+  margin: 0 10%;
+  padding: 0 5%;
 }
 
 .profile-image-div {
@@ -166,7 +181,9 @@ textarea {
 }
 
 .profile-image {
-  width: fit-content;
+  width: 100%;
+  max-width: 450px;
+  justify-self: center;
 }
 
 .info-div{
@@ -462,12 +479,6 @@ button {
   text-align: right;
 }
 
-.create-project-div {
-  margin-top: -30px;
-  margin-right: 40px;
-  text-align: right;
-}
-
 .create-skill-div button {
   margin-top: 0;
   margin-right: 0;
@@ -559,7 +570,7 @@ button {
 .skills-container {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   /* grid-template-columns: auto auto auto auto auto; */
-  margin: 0 250px;
+  margin: 0 20%;
 }
 
 .icon-container {
@@ -576,11 +587,11 @@ button {
 
 #about {
   padding-top: 92px;
-  height: calc(100vh - 92px);
+  min-height: calc(100vh - 92px);
 }
 
 #skills {
-  height: calc(100vh);
+  min-height: calc(100vh);
 }
 
 .skills-title{

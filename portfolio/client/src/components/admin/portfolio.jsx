@@ -326,7 +326,7 @@ const PortfolioC = () => {
 
         <div className="container">
           <div className="title-div">
-            <p className="title">portfolio</p>
+            <p className="title">projects</p>
           </div>
           <div className="create-project-div">
             <button onClick={() => displayCreateModal()}>CREATE</button>
