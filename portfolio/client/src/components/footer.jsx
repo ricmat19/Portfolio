@@ -10,7 +10,7 @@ const FooterC = () => {
           <img className="footer-icon" src="../images/linkedin.svg" />
         </a>
         <a target="_blank" href="https://github.com/ricmat19" rel="noreferrer">
-          <img className="footer-icon" src="../images/skills/github.svg" />
+          <img className="footer-icon" src="../images/github.svg" />
         </a>
         <a target="_blank" href="Resume.pdf">
           <img className="footer-icon" src="../images/file.svg" />

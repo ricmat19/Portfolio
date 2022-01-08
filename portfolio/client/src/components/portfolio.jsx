@@ -26,20 +26,20 @@ const PortfolioC = () => {
   const [technology, setTechnology] = useState([]);
   const [skills, setSkills] = useState([]);
 
-  const [filterButtons, setFilterButtons] = useState("skill-buttons");
+  // const [filterButtons, setFilterButtons] = useState("skill-buttons");
   const [filteredThumbnails, setFilteredThumbnails] = useState([]);
 
-  const displayFilter = async () => {
-    try {
-      if (filterButtons === "skill-buttons") {
-        setFilterButtons("skill-buttons skill-buttons-view");
-      } else {
-        setFilterButtons("skill-buttons");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const displayFilter = async () => {
+  //   try {
+  //     if (filterButtons === "skill-buttons") {
+  //       setFilterButtons("skill-buttons skill-buttons-view");
+  //     } else {
+  //       setFilterButtons("skill-buttons");
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -215,9 +215,8 @@ const PortfolioC = () => {
         </div>
         <div className="create-project-div">
           <div className="grid skill-filters">
-            <div className={filterButtons}>
+            {/* <div className={filterButtons}> */}
               {skills.map((skill, index) => {
-                // if(filter){
                 return (
                   <button
                     className="skill"
@@ -227,14 +226,13 @@ const PortfolioC = () => {
                     {skill}
                   </button>
                 );
-                // }
               })}
-            </div>
-            <img
+            {/* </div> */}
+            {/* <img
               className="filter-icon"
               src="../../images/filter-solid.svg"
               onClick={() => displayFilter()}
-            />
+            /> */}
           </div>
         </div>
         <div className="portfolio-thumbnail-div">

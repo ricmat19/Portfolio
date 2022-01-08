@@ -10,6 +10,9 @@ const HeaderC = () => {
         <a className="nav-link" href="#about">
           <p>about</p>
         </a>
+        <a className="nav-link" href="#skills">
+          <p>skills & tools</p>
+        </a>
         <a className="nav-link" href="#portfolio">
           <p>portfolio</p>
         </a>
