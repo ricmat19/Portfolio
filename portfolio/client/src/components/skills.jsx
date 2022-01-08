@@ -3,18 +3,18 @@ import React, { useEffect, useState } from "react";
 // import HeaderC from "./header";
 // import FooterC from "./footer";
 
-function importAll(icons) {
-  let images = {};
-  icons.keys().forEach((icon) => {
-    images[icon.replace("./", "")] = icons(icon);
-  });
-  return images;
-}
-const skillIcons = importAll(require.context("../images/skills"));
+// function importAll(icons) {
+//   let images = {};
+//   icons.keys().forEach((icon) => {
+//     images[icon.replace("./", "")] = icons(icon);
+//   });
+//   return images;
+// }
+// const skillIcons = importAll(require.context("../images/skills"));
 
 const SkillsC = () => {
   const [newSkill] = useState("");
-  // const [skills, setSkills] = useState([]);
+  // const [skills, setSkills] = useState([]); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +30,7 @@ const SkillsC = () => {
         //     return a.ranking - b.ranking;
         //   });
         //   setSkills(skillArray);
-        console.log(skillIcons);
+        // console.log(skillIcons);
       } catch (err) {
         console.log(err);
       }
