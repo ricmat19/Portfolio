@@ -4,18 +4,16 @@ const FooterC = () => {
   return (
     <div className="grid footer">
       <div>Ricardo Del Cueto</div>
+      <div></div>
       <div className="grid footer-nav">
-        <a className="nav-link" href="/">
-          <p>home</p>
+        <a target="_blank" href="https://www.linkedin.com/in/rick-del-cueto-353393131/" rel="noreferrer">
+          <img className="footer-icon" src="../images/linkedin.svg" />
         </a>
-        <a className="nav-link" href="/about">
-          <p>about</p>
+        <a target="_blank" href="https://github.com/ricmat19" rel="noreferrer">
+          <img className="footer-icon" src="../images/skills/github.svg" />
         </a>
-        <a className="nav-link" href="/portfolio">
-          <p>portfolio</p>
-        </a>
-        <a className="nav-link" href="/contact">
-          <p>contact</p>
+        <a target="_blank" href="Resume.pdf">
+          <img className="footer-icon" src="../images/file.svg" />
         </a>
       </div>
     </div>

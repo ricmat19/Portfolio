@@ -3,7 +3,7 @@ import React from "react";
 const AboutC = () => {
   return (
     <div className="main grid">
-      <div className="container">
+      <div className="container about-container">
         <div className="title-div">
           <p className="title">about</p>
         </div>

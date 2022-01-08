@@ -36,7 +36,7 @@ const ContactC = () => {
   return (
     <div className="main grid">
       {/* <HeaderC /> */}
-      <div className="container">
+      <div className="container contact-container">
         <div className="title-div">
           <p className="title">contact</p>
         </div>
@@ -80,7 +80,7 @@ const ContactC = () => {
                 name="message"
                 ref={messageInput}
                 onChange={(e) => setMessage(e.target.value)}
-                rows="10"
+                rows="7"
                 required
               ></textarea>
             </div>

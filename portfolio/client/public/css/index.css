@@ -5,22 +5,20 @@ body {
 }
 
 .home-page-div {
-  background-image: url("/images/family-portrait.jpg");
+  background-image: url("/images/computer-work.jpg");
+  background-blend-mode: overlay;
+  background-color:  rgba(0, 40, 66, 0.7);
   background-repeat: no-repeat;
-  background-size: 40%;
-  background-color: black;
-  display: block;
-  --x: 0px;
-  --y: 0px;
-  background-position: center var(--y);
-  transition: 1.5s ease;
-  height: calc(100vh - 92px);
+  background-size: 100%;
+  background-position: center;
+  height: 100vh;
 }
 
-.home-page-div:hover {
-  background-size: 55%;
-  background-position: center 5%;
-  width: 100%;
+.home-title{
+  color: white;
+  font-size: 100px;
+  text-align: right;
+  padding: 100px;
 }
 
 a {
@@ -47,8 +45,8 @@ a {
   text-align: center;
 }
 
-.form-label{
-  color: black
+.form-label {
+  color: black;
 }
 
 .form-button-div {
@@ -175,7 +173,7 @@ textarea {
   margin: 0 75px;
 }
 
-.info-div p{
+.info-div p {
   margin-top: 0;
 }
 
@@ -217,7 +215,6 @@ textarea {
 .form-div {
   display: grid;
   justify-content: center;
-  padding: 0 0px 40px 0px;
 }
 
 .contact-form {
@@ -227,6 +224,11 @@ textarea {
   background: rgb(243, 243, 243);
   padding: 40px;
   grid-template-columns: repeat(1, minmax(0px, 800px));
+}
+
+.contact-container {
+  display: grid;
+  align-content: center;
 }
 
 .subject-line {
@@ -337,7 +339,7 @@ textarea {
 
 .footer {
   background: black;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 0 100px;
   height: 92px;
   align-items: center;
@@ -345,7 +347,8 @@ textarea {
 }
 
 .footer-nav {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  text-align: right;
 }
 
 .admin-navbar {
@@ -444,7 +447,7 @@ button {
   grid-template-columns: auto auto;
   gap: 50px;
   margin: 0 200px;
-  margin-top: 40px
+  margin-top: 40px;
 }
 
 .image-checkbox-list {
@@ -522,27 +525,51 @@ button {
   cursor: pointer;
 }
 
-.skills-container{
+.skills-container {
   grid-template-columns: auto auto auto auto auto;
   margin: 0 250px;
 }
 
-.icon-container{
+.icon-container {
   text-align: center;
   margin: 10px;
   align-self: center;
 }
 
-#skills, #contact{
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+#about {
+  padding-top: 92px;
+  height: calc(100vh - 92px);
+}
+
+#skills {
+  height: calc(100vh - 92px - 30px);
+}
+
+#skills,
+#contact {
   background-color: black;
   color: white;
-  margin-top: 50px;
 }
 
-#contact{
+#skills {
+  padding: 30px 0;
+}
+
+#portfolio {
+  padding-top: 92px;
+}
+
+#contact {
   height: 100vh;
+  margin-top: 92px;
 }
 
-#skills{
-  padding: 50px 0;
+.footer-icon{
+  height: 30px;
 }

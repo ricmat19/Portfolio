@@ -42,97 +42,97 @@ const SkillsC = () => {
     <div className="main grid">
       <div className="grid skills-container">
         <div className="icon-container">
-          <img className="icon" src="/static/media/html5-brands.9d733b4b.svg" />
+          <img className="icon" src="../images/skills/html5.svg" />
           <div>HTML5</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/css3-alt-brands.82c7eb8b.svg"
+            src="../images/skills/css3.svg"
           />
           <div>CSS3</div>
         </div>
         <div className="icon-container">
-          <img className="icon" src="/static/media/js-brands.dc1543fd.svg" />
+          <img className="icon" src="../images/skills/js.svg" />
           <div>JAVASCRIPT</div>
         </div>
         <div className="icon-container">
-          <img className="icon" src="/static/media/react-brands.3581e10e.svg" />
+          <img className="icon" src="../images/skills/react.svg" />
           <div>REACT</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/node-js-brands.53b1451c.svg"
+            src="../images/skills/nodejs.svg"
           />
           <div>NODEJS</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/express-original-wordmark.3365634d.svg"
+            src="../images/skills/express.svg"
           />
           <div>EXPRESS</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/icons8-mysql-logo.de1f441d.svg"
+            src="../images/skills/mysql.svg"
           />
           <div>MYSQL</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/icons8-postgresql.72b1e0fb.svg"
+            src="../images/skills/postgresql.svg"
           />
           <div>POSTRESQL</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/icons8-mongodb.acfd3543.svg"
+            src="../images/skills/mongodb.svg"
           />
           <div>MONGODB</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/typescript-icon.8d9549db.svg"
+            src="../images/skills/typescript.svg"
           />
           <div>TYPESCRIPT</div>
         </div>
         <div className="icon-container">
-          <img className="icon" src="/static/media/sass-brands.ce968b44.svg" />
+          <img className="icon" src="../images/skills/sass.svg" />
           <div>SASS</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/bootstrap-brands.bedaa35c.svg"
+            src="../images/skills/bootstrap.svg"
           />
           <div>BOOTSTRAP</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/github-brands.8bce9409.svg"
+            src="../images/skills/github.svg"
           />
           <div>GITHUB</div>
         </div>
         <div className="icon-container">
-          <img className="icon" src="/static/media/heroku-icon.68909cda.svg" />
+          <img className="icon" src="../images/skills/heroku.svg" />
           <div>HEROKU</div>
         </div>
         <div className="icon-container">
           <img
             className="icon"
-            src="/static/media/icons8-visual-studio-logo.bee01e54.svg"
+            src="../images/skills/visual-studio-code.svg"
           />
           <div>VISUAL STUDIO</div>
         </div>
         <div className="icon-container">
-          <img className="icon" src="/static/media/icons8-krita.f15a9f0a.svg" />
+          <img className="icon" src="../images/skills/krita.svg" />
           <div>KRITA</div>
         </div>
       </div>
