@@ -18,6 +18,12 @@ const HomeC = () => {
               <button className="resume-button">resume</button>
             </a>
           </div>
+          <a href="#about">
+            <div className="intro-button">
+              <div>see my work</div>
+              <i className="down-arrow fas fa-sort-down"></i>
+            </div>
+          </a>
         </div>
       </section>
       <section id="header">

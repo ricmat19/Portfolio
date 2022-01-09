@@ -7,18 +7,18 @@ body {
 .home-page-div {
   background-image: url("/images/computer-work.jpg");
   background-blend-mode: overlay;
-  background-color:  rgba(0, 40, 66, 0.7);
+  background-color: rgba(0, 40, 66, 0.7);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   height: 100vh;
 }
 
-.home-title{
+.home-title {
   color: white;
   font-size: 100px;
   text-align: right;
-  padding: 100px;
+  padding: 50px;
 }
 
 a {
@@ -89,8 +89,27 @@ textarea {
 }
 
 .nav-link {
+  display: grid;
   text-align: center;
   text-decoration: none;
+  align-content: center;
+  height: 100%;
+}
+
+.nav-link:hover {
+  background-color: rgb(44, 44, 44);
+}
+
+.intro-button {
+  color: white;
+  text-align: center;
+  margin-top: 150px;
+  font-size: 35px;
+}
+
+.down-arrow {
+  font-size: 50px;
+  color: white;
 }
 
 .title-div {
@@ -99,7 +118,7 @@ textarea {
 }
 
 .icon {
-  width: 75px;
+  height: 100px;
 }
 
 .icon:hover {
@@ -118,21 +137,11 @@ textarea {
   align-self: center;
   cursor: pointer;
   padding: 15px 0;
-  /* -webkit-animation: slide 0.5s forwards;
-  -webkit-animation-delay: 2s;
-  animation: slide 0.5s forwards;
-  animation-delay: 2s; */
 }
 
-.skill:hover{
+.skill:hover {
   font-weight: 700;
 }
-
-/* .create-project-div {
-  margin-top: -30px;
-  margin-right: 40px;
-  text-align: right;
-} */
 
 .skill-filters {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -163,7 +172,7 @@ textarea {
   }
 }
 
-.about-container{
+.about-container {
   display: grid;
 }
 
@@ -186,11 +195,11 @@ textarea {
   justify-self: center;
 }
 
-.info-div{
+.info-div {
   justify-self: center;
 }
 
-.info-text-div{
+.info-text-div {
   text-align: justify;
   width: 450px;
 }
@@ -239,20 +248,20 @@ textarea {
   justify-content: center;
 }
 
-.resume-div{
+.resume-div {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
 }
 
-.resume-button{
+.resume-button {
   background-color: white;
   color: black;
   padding: 10px 20px;
   font-size: 20px;
 }
 
-.contact-form-button{
+.contact-form-button {
   padding: 10px 20px;
   font-size: 20px;
   margin: 20px 0;
@@ -266,8 +275,6 @@ textarea {
   padding: 40px 40px 0 40px;
   grid-template-columns: repeat(1, minmax(0px, 800px));
 }
-
-
 
 .contact-container {
   display: grid;
@@ -387,7 +394,7 @@ textarea {
 .footer {
   background: black;
   grid-template-columns: repeat(3, 1fr);
-  padding: 0 100px;
+  padding: 0 50px;
   height: 92px;
   align-items: center;
   margin-top: auto;
@@ -396,6 +403,7 @@ textarea {
 .footer-nav {
   grid-template-columns: repeat(3, 1fr);
   text-align: right;
+  gap: 10px;
 }
 
 .admin-navbar {
@@ -571,6 +579,7 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   /* grid-template-columns: auto auto auto auto auto; */
   margin: 0 20%;
+  gap: 40px;
 }
 
 .icon-container {
@@ -582,7 +591,62 @@ button {
 #header {
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 2;
+}
+
+.hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 50px;
+  display: none;
+  color: white;
+  height: 100%;
+  align-content: center;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+@media (max-width: 770px) {
+  .hamburger {
+    display: grid;
+    grid-template-columns: auto;
+    height: 65.6px;
+    position: relative;
+    background-color: black;
+    text-align: right;
+  }
+
+  #header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+  }
+
+  .header {
+    width: 100vw;
+  }
+
+  .navbar {
+    display: none;
+    height: 328px;
+    grid-template-columns: auto;
+  }
+
+  .navbar-show {
+    display: grid;
+  }
+
+  .nav-link {
+    width: 100vw;
+    text-align: left;
+    padding-left: 50px;
+  }
+}
+
+.footer-name {
+  grid-template-columns: 60px 80px;
 }
 
 #about {
@@ -591,10 +655,12 @@ button {
 }
 
 #skills {
-  min-height: calc(100vh);
+  padding-top: 92px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 92px);
 }
 
-.skills-title{
+.skills-title {
   display: grid;
   align-content: flex-end;
 }
@@ -610,10 +676,10 @@ button {
 }
 
 #contact {
-  height: 100vh;
+  min-height: 100vh;
   margin-top: 92px;
 }
 
-.footer-icon{
+.footer-icon {
   height: 30px;
 }
