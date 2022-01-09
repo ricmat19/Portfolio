@@ -2,11 +2,12 @@ import React from "react";
 import HeaderC from "./header";
 import AboutC from "./about";
 import SkillsC from "./skills";
-import PortfolioC from "./portfolio";
+import ProjectsC from "./projects";
 import ContactC from "./contact";
 import FooterC from "./footer";
 
 const HomeC = () => {
+
   return (
     <div className="main grid">
       <section id="home" className="grid">
@@ -36,7 +37,7 @@ const HomeC = () => {
         <SkillsC />
       </section>
       <section id="portfolio" className="grid">
-        <PortfolioC />
+        <ProjectsC/>
       </section>
       <section id="contact" className="grid">
         <ContactC />

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import IndexAPI from "../apis/indexAPI";
-import HeaderC from "./header";
-import FooterC from "./footer";
 import LeftArrowC from "./leftArrow";
 import RightArrowC from "./rightArrow";
+import PropTypes from "prop-types";
+import { Backdrop, Box, Fade, Modal } from "@mui/material";
 
 function importAll(projects) {
   let images = {};
@@ -15,7 +15,8 @@ function importAll(projects) {
 }
 const projectThumbnails = importAll(require.context("../images/projects"));
 
-const ProjectDetailsC = () => {
+const ProjectDetailsC = (props) => {
+
   let parameters = useParams();
 
   const [title, setTitle] = useState("");
@@ -92,97 +93,111 @@ const ProjectDetailsC = () => {
 
   return (
     <div className="main">
-      <HeaderC />
-
-      <div className="project-details-container">
-        <div className="title-div">
-          <p className="title">{title}</p>
-        </div>
-        <div className="grid project-details">
-          <div className="grid slider-div">
-            <div className="slider-arrow" onClick={() => slideThumbnailLeft()}>
-              <LeftArrowC />
-            </div>
-            <div className="grid project-slide-div">
-              {thumbnails[0] !== undefined ? (
-                <div className="grid image-container">
-                  <img
-                    className="grid project-image"
-                    src={thumbnails[thumbnailIndex].default}
-                  />
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={props.open}
+        onClose={props.handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade 
+        in={props.open}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              bgcolor: "background.paper",
+              border: "2px solid #000",
+              boxShadow: 24,
+              p: 4,
+              width: "90vw",
+            }}
+          >
+            <div className="project-details-container">
+              <div className="title-div">
+                <p className="title">{title}</p>
+              </div>
+              <div className="grid project-details">
+                <div className="grid slider-div">
+                  <div
+                    className="slider-arrow"
+                    onClick={() => slideThumbnailLeft()}
+                  >
+                    <LeftArrowC />
+                  </div>
+                  <div className="grid project-slide-div">
+                    {thumbnails[0] !== undefined ? (
+                      <div className="grid image-container">
+                        <img
+                          className="grid project-image"
+                          src={thumbnails[thumbnailIndex].default}
+                        />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div
+                    className="slider-arrow"
+                    onClick={() => slideThumbnailRight()}
+                  >
+                    <RightArrowC />
+                  </div>
                 </div>
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="slider-arrow" onClick={() => slideThumbnailRight()}>
-              <RightArrowC />
-            </div>
-          </div>
-          <div className="grid project-tech-div">
-            {techs.map((tech, index) => {
-              return (
-                <button key={index} className="tech-label">
-                  {tech}
-                </button>
-              );
-            })}
-          </div>
-          <div className="text-content-container">
-            <div className="info-container">
-              <div className="sub-title">about the project</div>
-              <div className="info-div">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Explicabo itaque nulla deleniti aperiam animi rerum atque
-                  numquam ex quod inventore rem fugit possimus ab quibusdam vel
-                  sint, facere totam omnis? Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Veniam velit omnis ducimus in.
-                  Aperiam aut possimus ullam consectetur ipsa cumque nesciunt
-                  et, quia laborum accusantium iste magni, non minus quod?
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corporis, molestiae doloribus cupiditate magni sapiente
-                  nostrum voluptatem soluta nisi repellat quae voluptatibus
-                  accusantium magnam illo facere fugit maxime distinctio quis
-                  officia.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Explicabo itaque nulla deleniti aperiam animi rerum atque
-                  numquam ex quod inventore rem fugit possimus ab quibusdam vel
-                  sint, facere totam omnis? Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Veniam velit omnis ducimus in.
-                  Aperiam aut possimus ullam consectetur ipsa cumque nesciunt
-                  et, quia laborum accusantium iste magni, non minus quod?
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corporis, molestiae doloribus cupiditate magni sapiente
-                  nostrum voluptatem soluta nisi repellat quae voluptatibus
-                  accusantium magnam illo facere fugit maxime distinctio quis
-                  officia.
-                </p>
+                <div className="grid project-tech-div">
+                  {techs.map((tech, index) => {
+                    return (
+                      <button key={index} className="tech-label">
+                        {tech}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="text-content-container">
+                  <div className="info-container">
+                    <div className="sub-title">about the project</div>
+                    <div className="info-div">
+                      <p></p>
+                    </div>
+                  </div>
+                  <div className="resource-container">
+                    <div className="sub-title">Resources</div>
+                    <div className="resources-div">
+                      <ul>
+                        <li>
+                          <span className="project-resource">
+                            <a
+                              href={githubLink}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Github
+                            </a>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="resource-container">
-              <div className="sub-title">Resources</div>
-              <div className="resources-div">
-                <ul>
-                  <li>
-                    <span className="project-resource">
-                      <a href={githubLink} target="_blank" rel="noreferrer">
-                        Github
-                      </a>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <FooterC />
+          </Box>
+        </Fade>
+      </Modal>
     </div>
   );
+};
+
+ProjectDetailsC.propTypes = {
+  open: PropTypes.boolean,
+  handleClose: PropTypes.func,
 };
 
 export default ProjectDetailsC;

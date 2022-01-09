@@ -17,7 +17,7 @@ function importAll(projects) {
 }
 const projectThumbnails = importAll(require.context("../../images/projects"));
 
-const PortfolioC = () => {
+const ProjectsC = () => {
   const currentProjectThumbnailArray = [];
 
   const [loginStatus, setLoginStatus] = useState(true);
@@ -421,4 +421,4 @@ const PortfolioC = () => {
   }
 };
 
-export default PortfolioC;
+export default ProjectsC;

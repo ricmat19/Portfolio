@@ -277,7 +277,6 @@ textarea {
 }
 
 .contact-container {
-  display: grid;
   align-content: center;
 }
 
@@ -678,6 +677,7 @@ button {
 #contact {
   min-height: 100vh;
   margin-top: 92px;
+  padding-top: 92px;
 }
 
 .footer-icon {

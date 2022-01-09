@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import IndexAPI from "../apis/indexAPI";
-// import HeaderC from "./header";
-// import FooterC from "./footer";
+import ProjectDetailsC from "./projectDetails";
 
 function importAll(projects) {
   let images = {};
@@ -13,10 +11,13 @@ function importAll(projects) {
 }
 const projectThumbnails = importAll(require.context("../images/projects"));
 
-const PortfolioC = () => {
-  let history = useHistory();
+const ProjectsC = () => {
 
   const currentProjectThumbnailArray = [];
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const [, setProjects] = useState();
 
@@ -209,6 +210,7 @@ const PortfolioC = () => {
   return (
     <div className="main grid">
       {/* <HeaderC /> */}
+      <ProjectDetailsC open={open} handleClose={handleClose}/>
       <div className="container">
         <div className="title-div">
           <p className="title">projects</p>
@@ -242,9 +244,7 @@ const PortfolioC = () => {
                 <div
                   className="portfolio-item-div"
                   key={thumbnailIndex}
-                  onClick={() =>
-                    history.push(`/portfolio/${thumbnail.project}`)
-                  }
+                  onClick={handleOpen}
                 >
                   <div className="portfolio-project">
                     <img
@@ -288,4 +288,4 @@ const PortfolioC = () => {
   );
 };
 
-export default PortfolioC;
+export default ProjectsC;
