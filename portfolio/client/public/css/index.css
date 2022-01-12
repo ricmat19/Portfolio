@@ -113,8 +113,11 @@ textarea {
 }
 
 .title-div {
-  font-size: 40px;
   text-align: center;
+}
+
+.title{
+  font-size: 30px;
 }
 
 .icon {
@@ -213,6 +216,11 @@ textarea {
   text-align: center;
   font-size: 40px;
   margin-bottom: 20px;
+}
+
+.thumbnail-desc-div {
+  color: white;
+  font-size: 25px;
 }
 
 .skill-category-div {
@@ -547,10 +555,6 @@ button {
   cursor: default;
 }
 
-.project-details {
-  margin: 0 50px;
-}
-
 @media (min-width: 1180px) {
   .text-content-container {
     margin: 0 200px;
@@ -569,7 +573,7 @@ button {
 }
 
 .slider-arrow {
-  width: 50px;
+  width: 30px;
   padding: 30px;
   cursor: pointer;
 }

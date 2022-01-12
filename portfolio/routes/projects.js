@@ -5,7 +5,7 @@ const db = require("../db/index");
 router.get("/projects", async (req, res) => {
   try {
     db.query(
-      "SELECT * FROM project_images; SELECT * FROM project_tech;",
+      "SELECT * FROM project_images; SELECT * FROM project_tech; SELECT * FROM projects;",
       function (err, result) {
         if (err) throw err;
         res.status(200).json({

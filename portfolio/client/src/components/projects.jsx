@@ -12,20 +12,23 @@ function importAll(projects) {
 const projectThumbnails = importAll(require.context("../images/projects"));
 
 const ProjectsC = () => {
-
   const currentProjectThumbnailArray = [];
 
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const [, setProjects] = useState();
-
+  const [detailsTitle, setDetailsTitle] = useState("");
+  const [projects, setProjects] = useState([]);
   const [titles, setTitles] = useState([]);
   const [, setAllThumbnails] = useState([]);
   const [thumbnails, setThumbnails] = useState([]);
   const [technology, setTechnology] = useState([]);
   const [skills, setSkills] = useState([]);
+
+  const handleOpen = (title) => {
+    setDetailsTitle(title);
+    setOpen(true);
+  }
+
+  const handleClose = () => setOpen(false);
 
   // const [filterButtons, setFilterButtons] = useState("skill-buttons");
   const [filteredThumbnails, setFilteredThumbnails] = useState([]);
@@ -54,7 +57,17 @@ const ProjectsC = () => {
 
         //Get all project thumbnails and images from DB
         const projects = await IndexAPI.get(`/projects`);
-        setProjects(projects.data.results);
+        setProjects(projects.data.data.skills);
+        // console.log(projects.data.data.skills[2]);
+
+        //Loops through all projects
+        // const descriptionsArray = [];
+        // for (let i = 0; i < projects.data.data.skills[2].length; i++) {
+        //     if (projects.data.data.skills[2][i].project === projectTechArray[i]) {
+        //       tempArray.push(projects.data.results[1][j].technology);
+        //     }
+        // }
+        // setDescriptions(descriptionsArray);
 
         //Adds all the projects in project_images to the projectThumbnailArray
         const projectThumbnailArray = [];
@@ -210,7 +223,11 @@ const ProjectsC = () => {
   return (
     <div className="main grid">
       {/* <HeaderC /> */}
-      <ProjectDetailsC open={open} handleClose={handleClose}/>
+      <ProjectDetailsC
+        title={detailsTitle}
+        open={open}
+        handleClose={handleClose}
+      />
       <div className="container">
         <div className="title-div">
           <p className="title">projects</p>
@@ -218,17 +235,17 @@ const ProjectsC = () => {
         <div className="create-project-div">
           <div className="grid skill-filters">
             {/* <div className={filterButtons}> */}
-              {skills.map((skill, index) => {
-                return (
-                  <div
-                    className="skill"
-                    key={index}
-                    onClick={() => filterProjects(skill)}
-                  >
-                    {skill}
-                  </div>
-                );
-              })}
+            {skills.map((skill, index) => {
+              return (
+                <div
+                  className="skill"
+                  key={index}
+                  onClick={() => filterProjects(skill)}
+                >
+                  {skill}
+                </div>
+              );
+            })}
             {/* </div> */}
             {/* <img
               className="filter-icon"
@@ -244,7 +261,7 @@ const ProjectsC = () => {
                 <div
                   className="portfolio-item-div"
                   key={thumbnailIndex}
-                  onClick={handleOpen}
+                  onClick={() => handleOpen(titles[thumbnailIndex])}
                 >
                   <div className="portfolio-project">
                     <img
@@ -257,18 +274,11 @@ const ProjectsC = () => {
                       </div>
                       <div className="grid buttons-div">
                         <div className="tech-used">
-                          {technology.map((tech, techIndex) => {
-                            if (thumbnailIndex === techIndex) {
+                          {projects[2].map((project) => {
+                            if (thumbnail.project === project.project) {
                               return (
-                                <div
-                                  className="grid project-tech"
-                                  key={techIndex}
-                                >
-                                  {tech[titles[techIndex]][0].map(
-                                    (t, index) => {
-                                      return <button key={index}>{t}</button>;
-                                    }
-                                  )}
+                                <div className="thumbnail-desc-div">
+                                  {project.description}
                                 </div>
                               );
                             }

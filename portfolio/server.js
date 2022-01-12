@@ -6,7 +6,7 @@ const MySQLStore = require("express-mysql-session")(session);
 const path = require("path");
 const app = express();
 const aboutRouter = require("./routes/about");
-const portfolioRouter = require("./routes/portfolio");
+const projectsRouter = require("./routes/projects");
 const projectDetailsRouter = require("./routes/projectDetails");
 const contactRouter = require("./routes/contact");
 const loginRouter = require("./routes/login");
@@ -53,7 +53,7 @@ app.use(
 
 app.use(aboutRouter);
 app.use(contactRouter);
-app.use(portfolioRouter);
+app.use(projectsRouter);
 app.use(projectDetailsRouter);
 app.use(loginRouter);
 

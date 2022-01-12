@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import IndexAPI from "../apis/indexAPI";
 import LeftArrowC from "./leftArrow";
 import RightArrowC from "./rightArrow";
@@ -16,25 +15,26 @@ function importAll(projects) {
 const projectThumbnails = importAll(require.context("../images/projects"));
 
 const ProjectDetailsC = (props) => {
-
-  let parameters = useParams();
-
-  const [title, setTitle] = useState("");
-  const [githubLink, setGithubLink] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [githubLink, setGithubLink] = useState("");
   const [thumbnails, setThumbnails] = useState([]);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
   const [techs, setTechs] = useState([]);
+  const [summary, setSummary] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setTitle(parameters.project.toLowerCase());
-
+        // setTitle(parameters.project.toLowerCase());
+        console.log(props);
         //Fix: Add Github URL to DB
-        setGithubLink(`https://github.com/ricmat19/${parameters.project}`);
+        // setGithubLink(`https://github.com/ricmat19/${parameters.project}`);
 
+        let project = {};
         //Get project from DB
-        const project = await IndexAPI.get(`/portfolio/${parameters.project}`);
+        if(props.title !== ""){
+          project = await IndexAPI.get(`/portfolio/${props.title}`);
+        }
 
         const projectThumbnailsArray = [];
         //Loops through the array of images associated with this project
@@ -50,7 +50,6 @@ const ProjectDetailsC = (props) => {
           }
         }
         setThumbnails(projectThumbnailsArray);
-        console.log(projectThumbnailsArray);
 
         const projectTechArray = [];
         //Loops through the array of technology associated with this project
@@ -58,12 +57,20 @@ const ProjectDetailsC = (props) => {
           projectTechArray.push(project.data.results[0][i].technology);
         }
         setTechs(projectTechArray);
+
+        for (let i = 0; i < project.data.data.project[2].length; i++) {
+          if(project.data.data.project[2][i].project === props.title){
+            console.log(project.data.data.project[2][i].project === props.title)
+            setSummary(project.data.data.project[2][i].summary)
+          }
+        }
+
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  }, []);
+  }, [props]);
 
   const slideThumbnailLeft = async () => {
     try {
@@ -104,9 +111,7 @@ const ProjectDetailsC = (props) => {
           timeout: 500,
         }}
       >
-        <Fade 
-        in={props.open}
-        >
+        <Fade in={props.open}>
           <Box
             sx={{
               position: "absolute",
@@ -117,13 +122,9 @@ const ProjectDetailsC = (props) => {
               border: "2px solid #000",
               boxShadow: 24,
               p: 4,
-              width: "90vw",
             }}
           >
             <div className="project-details-container">
-              <div className="title-div">
-                <p className="title">{title}</p>
-              </div>
               <div className="grid project-details">
                 <div className="grid slider-div">
                   <div
@@ -161,10 +162,12 @@ const ProjectDetailsC = (props) => {
                   })}
                 </div>
                 <div className="text-content-container">
+                  <div className="">
+                    <div className="title">{props.title}</div>
+                  </div>
                   <div className="info-container">
-                    <div className="sub-title">about the project</div>
                     <div className="info-div">
-                      <p></p>
+                      {summary}
                     </div>
                   </div>
                   <div className="resource-container">
@@ -174,7 +177,7 @@ const ProjectDetailsC = (props) => {
                         <li>
                           <span className="project-resource">
                             <a
-                              href={githubLink}
+                              // href={githubLink}
                               target="_blank"
                               rel="noreferrer"
                             >
@@ -197,6 +200,8 @@ const ProjectDetailsC = (props) => {
 
 ProjectDetailsC.propTypes = {
   open: PropTypes.boolean,
+  title: PropTypes.string,
+  project: PropTypes.array,
   handleClose: PropTypes.func,
 };
 
