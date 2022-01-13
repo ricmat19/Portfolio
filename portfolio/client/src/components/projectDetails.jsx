@@ -21,6 +21,8 @@ const ProjectDetailsC = (props) => {
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
   const [techs, setTechs] = useState([]);
   const [summary, setSummary] = useState("");
+  const [website, setWebsite] = useState("");
+  const [gitHubRepo, setGitHubRepo] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +34,7 @@ const ProjectDetailsC = (props) => {
 
         let project = {};
         //Get project from DB
-        if(props.title !== ""){
+        if (props.title !== "") {
           project = await IndexAPI.get(`/portfolio/${props.title}`);
         }
 
@@ -59,12 +61,15 @@ const ProjectDetailsC = (props) => {
         setTechs(projectTechArray);
 
         for (let i = 0; i < project.data.data.project[2].length; i++) {
-          if(project.data.data.project[2][i].project === props.title){
-            console.log(project.data.data.project[2][i].project === props.title)
-            setSummary(project.data.data.project[2][i].summary)
+          if (project.data.data.project[2][i].project === props.title) {
+            console.log(
+              project.data.data.project[2][i].project === props.title
+            );
+            setSummary(project.data.data.project[2][i].summary);
+            setWebsite(project.data.data.project[2][i].website);
+            setGitHubRepo(project.data.data.project[2][i].github_repo);
           }
         }
-
       } catch (err) {
         console.log(err);
       }
@@ -110,6 +115,10 @@ const ProjectDetailsC = (props) => {
         BackdropProps={{
           timeout: 500,
         }}
+        sx={{
+          overflowY: "auto",
+          overflowX: "hidden"
+        }}
       >
         <Fade in={props.open}>
           <Box
@@ -122,6 +131,7 @@ const ProjectDetailsC = (props) => {
               border: "2px solid #000",
               boxShadow: 24,
               p: 4,
+              margin: "70px 0"
             }}
           >
             <div className="project-details-container">
@@ -161,31 +171,25 @@ const ProjectDetailsC = (props) => {
                     );
                   })}
                 </div>
-                <div className="text-content-container">
-                  <div className="">
-                    <div className="title">{props.title}</div>
+                <div className="info-div">
+                  <div>
+                    <div className="title">{props.title.toLowerCase()}</div>
                   </div>
-                  <div className="info-container">
-                    <div className="info-div">
-                      {summary}
+                  <div className="summary-container">
+                    <p className="summary-div">{summary}</p>
+                  </div>
+                  <div className="resources-container">
+                    <div className="sub-section">
+                      website
+                      <div className="resources-div">
+                        <a href={website}>{website}</a>
+                      </div>
                     </div>
-                  </div>
-                  <div className="resource-container">
-                    <div className="sub-title">Resources</div>
-                    <div className="resources-div">
-                      <ul>
-                        <li>
-                          <span className="project-resource">
-                            <a
-                              // href={githubLink}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              Github
-                            </a>
-                          </span>
-                        </li>
-                      </ul>
+                    <div className="sub-section">
+                      github
+                      <div className="resources-div">
+                        <a href={gitHubRepo}>{gitHubRepo}</a>
+                      </div>
                     </div>
                   </div>
                 </div>
