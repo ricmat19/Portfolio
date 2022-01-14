@@ -75,7 +75,6 @@ textarea {
   padding: 10px;
   outline: none;
   font-family: "Rajdhani";
-  font-size: 15px;
   resize: none;
 }
 
@@ -199,8 +198,8 @@ textarea {
 }
 
 .info-div{
-  max-width: 400px;
   justify-self: center;
+  text-align: justify;
 }
 
 .summary-div {
@@ -219,7 +218,7 @@ textarea {
 .thumbnail-title-div {
   color: white;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 
@@ -233,13 +232,7 @@ textarea {
   padding: 10px;
 }
 
-.sub-title {
-  font-size: 25px;
-  border-bottom: 1px solid black;
-  width: fit-content;
-}
-
-.sub-section{
+.sub-title{
   font-size: 20px;
 }
 
@@ -247,10 +240,6 @@ textarea {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   gap: 1em;
-}
-
-.resources-div{
-  font-size: 17px;
 }
 
 .skill-category-div .sub-title {
@@ -284,13 +273,9 @@ textarea {
 .resume-button {
   background-color: white;
   color: black;
-  padding: 10px 20px;
-  font-size: 20px;
 }
 
 .contact-form-button {
-  padding: 10px 20px;
-  font-size: 20px;
   margin: 20px 0;
 }
 
@@ -482,9 +467,22 @@ button {
   color: white;
   border-radius: 0;
   width: auto;
-  padding: 5px 10px;
   margin: 5px;
-  font-size: 15px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.tech-label{
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  width: auto;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
 }
 
 .project-creation-checkbox-div {
@@ -585,6 +583,10 @@ button {
   cursor: pointer;
 }
 
+.project-details{
+  display: grid;
+}
+
 .slider-div {
   grid-template-columns: auto auto auto;
   align-items: center;
@@ -599,7 +601,6 @@ button {
 
 .skills-container {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  /* grid-template-columns: auto auto auto auto auto; */
   margin: 0 20%;
   gap: 40px;
 }

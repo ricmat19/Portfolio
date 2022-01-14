@@ -14,7 +14,7 @@ const AboutC = () => {
           <div className="info-div">
             <div className="info-text-div">
               <p>
-                Hi! My name is Ricardo &quot;Ricky&quot; Del Cueto. A Full Stack
+                <strong>Hi! My name is Ricardo &quot;Ricky&quot; Del Cueto.</strong> A Full Stack
                 Web Developer living in Miami, Florida. Throughout my journey in
                 web development I&apos;ve developed a strong understanding of
                 various technologies including: JavaScript, React, Node.js,

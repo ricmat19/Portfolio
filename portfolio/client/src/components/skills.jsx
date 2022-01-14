@@ -43,7 +43,7 @@ const SkillsC = () => {
       <div className="title-div skills-title">
         <p className="title">skills & tools</p>
       </div>
-      <div className="grid skills-container">
+      <div className="grid sub-title skills-container">
         <div className="icon-container">
           <img className="icon" src="../images/skills/html5.svg" />
           <div>HTML5</div>

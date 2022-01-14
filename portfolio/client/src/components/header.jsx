@@ -20,7 +20,7 @@ const HeaderC = () => {
   };
 
   return (
-    <div className="header">
+    <div className="header sub-title">
       <div className="hamburger" onClick={() => displayMenu()}>
         <i className="fas fa-bars"></i>
       </div>

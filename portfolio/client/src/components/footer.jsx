@@ -2,7 +2,7 @@ import React from "react";
 
 const FooterC = () => {
   return (
-    <div className="grid footer">
+    <div className="grid sub-title footer">
       <div className="grid footer-name">
         <div>ricardo </div>
         <div>del cueto</div>

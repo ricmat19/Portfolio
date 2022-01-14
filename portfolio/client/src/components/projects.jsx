@@ -233,7 +233,7 @@ const ProjectsC = () => {
           <p className="title">projects</p>
         </div>
         <div className="create-project-div">
-          <div className="grid skill-filters">
+          <div className="grid sub-title skill-filters">
             {/* <div className={filterButtons}> */}
             {skills.map((skill, index) => {
               return (

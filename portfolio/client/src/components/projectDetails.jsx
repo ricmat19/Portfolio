@@ -131,11 +131,11 @@ const ProjectDetailsC = (props) => {
               border: "2px solid #000",
               boxShadow: 24,
               p: 4,
-              margin: "70px 0"
+              minWidth: "375px"
             }}
           >
             <div className="project-details-container">
-              <div className="grid project-details">
+              <div className="project-details">
                 <div className="grid slider-div">
                   <div
                     className="slider-arrow"
@@ -143,9 +143,9 @@ const ProjectDetailsC = (props) => {
                   >
                     <LeftArrowC />
                   </div>
-                  <div className="grid project-slide-div">
+                  <div className="project-slide-div">
                     {thumbnails[0] !== undefined ? (
-                      <div className="grid image-container">
+                      <div className="image-container">
                         <img
                           className="grid project-image"
                           src={thumbnails[thumbnailIndex].default}
@@ -165,9 +165,9 @@ const ProjectDetailsC = (props) => {
                 <div className="grid project-tech-div">
                   {techs.map((tech, index) => {
                     return (
-                      <button key={index} className="tech-label">
+                      <div key={index} className="tech-label">
                         {tech}
-                      </button>
+                      </div>
                     );
                   })}
                 </div>
