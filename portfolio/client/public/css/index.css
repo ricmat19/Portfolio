@@ -311,13 +311,16 @@ textarea {
 }
 
 .project-thumbnail {
-  max-width: 100%;
+  max-height: 400px;
   display: block;
 }
 
 .portfolio-project {
   position: relative;
   border: 1px black solid;
+  display: grid;
+  justify-content: center;
+  background-color: black;
 }
 
 .portfolio-project:hover {
@@ -555,11 +558,14 @@ button {
 }
 
 .image-container {
-  grid-template-columns: repeat(1, minmax(500px, 1000px));
+  display: grid;
+  justify-items: center;
 }
 
 .project-image {
-  width: 100%;
+  max-height: 350px;
+  border: black solid 1px;
+  justify-content: center;
 }
 
 .project-tech-div {
@@ -588,9 +594,8 @@ button {
 }
 
 .slider-div {
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 50px auto 50px;
   align-items: center;
-  justify-content: center;
 }
 
 .slider-arrow {
