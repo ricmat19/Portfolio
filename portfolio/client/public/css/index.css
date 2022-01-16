@@ -141,7 +141,7 @@ textarea {
   padding: 15px 0;
 }
 
-.skill:hover {
+.skill:hover, .resources-div:hover {
   font-weight: 700;
 }
 
@@ -311,8 +311,8 @@ textarea {
 }
 
 .project-thumbnail {
-  max-height: 400px;
   display: block;
+  width: 100%;
 }
 
 .portfolio-project {
@@ -563,7 +563,7 @@ button {
 }
 
 .project-image {
-  max-height: 350px;
+  max-width: 100%;
   border: black solid 1px;
   justify-content: center;
 }

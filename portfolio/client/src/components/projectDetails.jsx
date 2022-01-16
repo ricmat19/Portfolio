@@ -131,7 +131,9 @@ const ProjectDetailsC = (props) => {
               border: "2px solid #000",
               boxShadow: 24,
               p: 4,
-              minWidth: "375px"
+              minWidth: "375px",
+              maxHeight: "80vh",
+              overflow: "auto"
             }}
           >
             <div className="project-details-container">
@@ -182,13 +184,13 @@ const ProjectDetailsC = (props) => {
                     <div className="sub-section">
                       website
                       <div className="resources-div">
-                        <a href={website}>{website}</a>
+                        <a target="_blank" href={website} rel="noreferrer">{website}</a>
                       </div>
                     </div>
                     <div className="sub-section">
                       github
                       <div className="resources-div">
-                        <a href={gitHubRepo}>{gitHubRepo}</a>
+                        <a target="_blank" href={gitHubRepo} rel="noreferrer">{gitHubRepo}</a>
                       </div>
                     </div>
                   </div>
