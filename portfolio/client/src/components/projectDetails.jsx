@@ -28,7 +28,6 @@ const ProjectDetailsC = (props) => {
     const fetchData = async () => {
       try {
         // setTitle(parameters.project.toLowerCase());
-        console.log(props);
         //Fix: Add Github URL to DB
         // setGithubLink(`https://github.com/ricmat19/${parameters.project}`);
 
@@ -62,9 +61,6 @@ const ProjectDetailsC = (props) => {
 
         for (let i = 0; i < project.data.data.project[2].length; i++) {
           if (project.data.data.project[2][i].project === props.title) {
-            console.log(
-              project.data.data.project[2][i].project === props.title
-            );
             setSummary(project.data.data.project[2][i].summary);
             setWebsite(project.data.data.project[2][i].website);
             setGitHubRepo(project.data.data.project[2][i].github_repo);

@@ -7,7 +7,6 @@ import ContactC from "./contact";
 import FooterC from "./footer";
 
 const HomeC = () => {
-
   return (
     <div className="main grid">
       <section id="home" className="grid">
@@ -37,7 +36,7 @@ const HomeC = () => {
         <SkillsC />
       </section>
       <section id="portfolio" className="grid">
-        <ProjectsC/>
+        <ProjectsC />
       </section>
       <section id="contact" className="grid">
         <ContactC />

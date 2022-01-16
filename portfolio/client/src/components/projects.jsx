@@ -26,7 +26,7 @@ const ProjectsC = () => {
   const handleOpen = (title) => {
     setDetailsTitle(title);
     setOpen(true);
-  }
+  };
 
   const handleClose = () => setOpen(false);
 
@@ -214,6 +214,9 @@ const ProjectsC = () => {
           }
         }
       }
+      filteredThumbnails.sort((a, b) => {
+        return a.id - b.id;
+      });
       setFilteredThumbnails(filteredThumbnails);
     } catch (err) {
       console.log(err);
@@ -234,7 +237,6 @@ const ProjectsC = () => {
         </div>
         <div className="create-project-div">
           <div className="grid sub-title skill-filters">
-            {/* <div className={filterButtons}> */}
             {skills.map((skill, index) => {
               return (
                 <div
@@ -246,12 +248,6 @@ const ProjectsC = () => {
                 </div>
               );
             })}
-            {/* </div> */}
-            {/* <img
-              className="filter-icon"
-              src="../../images/filter-solid.svg"
-              onClick={() => displayFilter()}
-            /> */}
           </div>
         </div>
         <div className="portfolio-thumbnail-div">
@@ -260,7 +256,6 @@ const ProjectsC = () => {
               <div key={thumbnailIndex}>
                 <div
                   className="portfolio-item-div"
-                  key={thumbnailIndex}
                   onClick={() => handleOpen(titles[thumbnailIndex])}
                 >
                   <div className="portfolio-project">
@@ -274,10 +269,10 @@ const ProjectsC = () => {
                       </div>
                       <div className="grid buttons-div">
                         <div className="tech-used">
-                          {projects[2].map((project) => {
+                          {projects[2].map((project, index) => {
                             if (thumbnail.project === project.project) {
                               return (
-                                <div className="thumbnail-desc-div">
+                                <div key={index} className="thumbnail-desc-div">
                                   {project.description}
                                 </div>
                               );

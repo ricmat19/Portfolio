@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 // navbar : header
 // toggle-button :hamburger
@@ -8,14 +8,13 @@ import React, {useState} from "react";
 // list
 
 const HeaderC = () => {
-
   const [navbarShow, setNavbarShow] = useState("navbar");
 
   const displayMenu = () => {
-    if(navbarShow === "navbar navbar-show"){
-      setNavbarShow("navbar")
-    }else{
-      setNavbarShow("navbar navbar-show")
+    if (navbarShow === "navbar navbar-show") {
+      setNavbarShow("navbar");
+    } else {
+      setNavbarShow("navbar navbar-show");
     }
   };
 
