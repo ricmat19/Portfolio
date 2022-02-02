@@ -3,7 +3,6 @@ import { Redirect } from "react-router";
 import { useHistory } from "react-router-dom";
 import IndexAPI from "../../apis/indexAPI";
 import AdminHeaderC from "./header";
-import AdminFooterC from "./footer";
 import CreateC from "./addProject";
 import UpdateC from "./updateProject";
 import DeleteC from "./deleteProject";
@@ -385,26 +384,6 @@ const ProjectsC = () => {
                         <div className="thumbnail-title-div">
                           {titles[thumbnailIndex].toLowerCase()}
                         </div>
-                        <div className="grid buttons-div">
-                          <div className="tech-used">
-                            {technology.map((tech, techIndex) => {
-                              if (thumbnailIndex === techIndex) {
-                                return (
-                                  <div
-                                    className="grid project-tech"
-                                    key={techIndex}
-                                  >
-                                    {tech[titles[techIndex]][0].map(
-                                      (t, index) => {
-                                        return <button key={index}>{t}</button>;
-                                      }
-                                    )}
-                                  </div>
-                                );
-                              }
-                            })}
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -413,7 +392,6 @@ const ProjectsC = () => {
             })}
           </div>
         </div>
-        <AdminFooterC />
       </div>
     );
   } else {
