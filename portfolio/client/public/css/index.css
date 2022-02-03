@@ -35,6 +35,10 @@ a {
   align-content: center;
 }
 
+.center{
+  text-align: center;
+}
+
 .login-inputs {
   display: grid;
   gap: 10px;
@@ -273,6 +277,10 @@ textarea {
 .resume-button {
   background-color: white;
   color: black;
+}
+
+.create-button{
+  margin-left: 40px;
 }
 
 .contact-form-button {
@@ -616,7 +624,7 @@ button {
   align-self: center;
 }
 
-#header {
+#header, #admin-header {
   position: sticky;
   top: 0;
   z-index: 2;
@@ -645,7 +653,7 @@ button {
     text-align: right;
   }
 
-  #header {
+  #header, #admin-header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -677,12 +685,12 @@ button {
   grid-template-columns: 60px 80px;
 }
 
-#about {
+#about, #admin-about {
   padding-top: 92px;
   min-height: calc(100vh - 92px);
 }
 
-#skills {
+#skills, #admin-skills {
   padding-top: 92px;
   padding-bottom: 50px;
   min-height: calc(100vh - 92px);
@@ -694,13 +702,41 @@ button {
 }
 
 #skills,
+#admin-skills,
 #contact {
   background-color: black;
   color: white;
 }
 
-#portfolio {
+#portfolio, #admin-portfolio {
   padding-top: 92px;
+}
+
+#admin-portfolio{
+  margin-bottom: 92px;
+}
+
+.create-modal-grid{
+  grid-template-columns: 50px auto;
+}
+
+.add-skill-button{
+  border: white solid 2px;
+  width: fit-content;
+  margin-left: 40px;
+}
+
+.project-title{
+  display: grid;
+  align-content: center;
+}
+
+.create-button-div{
+  text-align: right;
+}
+
+.create-modal-grid input{
+  outline: auto;
 }
 
 #contact {

@@ -1,213 +1,44 @@
-// import React, { useEffect, useRef, useState } from "react";
-// import { Redirect } from "react-router";
-// import IndexAPI from "../../apis/indexAPI";
-// import AdminHeaderC from "./header";
-// import AdminFooterC from "./footer";
-// import SkillC from "./addSkill";
+import React from "react";
 
-// // function importAll(icons) {
-// //   let images = {};
-// //   icons.keys().forEach((icon) => {
-// //     images[icon.replace("./", "")] = icons(icon);
-// //   });
-// //   return images;
-// // }
-// // const skillIcons = importAll(require.context("../../images/skills"));
+const AboutC = () => {
+  return (
+    <div className="main grid">
+      <div className="container about-container">
+        <div className="title-div">
+          <p className="title">about</p>
+        </div>
+        <div className="about-content-div">
+          <div className="profile-image-div">
+            <img className="profile-image" src="../images/about-image.jpg" />
+          </div>
+          <div className="info-div">
+            <div className="info-text-div">
+              <p>
+                <strong>
+                  Hi! My name is Ricardo &quot;Ricky&quot; Del Cueto.
+                </strong>{" "}
+                A Full Stack Web Developer living in Miami, Florida. Throughout
+                my journey in web development I&apos;ve developed a strong
+                understanding of various technologies including: JavaScript,
+                React, Node.js, Express, MySQL, PostgreSQL, HTML5, and CSS3. I
+                got into web development because I love the process of creating
+                something new as well as solving puzzle. Web development
+                provides me with an opportunity to do both of these things. On
+                top of that software development is constantly changing and
+                evolving, providing me with the exiting opportunity to
+                continusly learn and develop new skills as a developer.
+              </p>
+              <p>
+                Want help with your web development project? Feel free to
+                contact me. I&apos;d love to connect and hopefully help you
+                build something great!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-// const AboutC = () => {
-//   const [loginStatus, setLoginStatus] = useState(true);
-//   const [skillModal, setSkillModal] = useState("modal");
-//   const [newSkill, setNewSkill] = useState("");
-//   const [skills, setSkills] = useState([]);
-
-//   const skillRef = useRef();
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const loginResponse = await IndexAPI.get(`/login`);
-//         setLoginStatus(loginResponse.data.data.loggedIn);
-
-//         document.addEventListener("mousedown", (event) => {
-//           if (skillRef.current !== null) {
-//             if (!skillRef.current.contains(event.target)) {
-//               setSkillModal("modal");
-//             }
-//           }
-//         });
-
-//         //Get all skills from DB
-//         const skills = await IndexAPI.get(`/skills`);
-//         const skillArray = [];
-//         for (let i = 0; i < skills.data.results.length; i++) {
-//           skills.data.results[i].iconImage =
-//             skillIcons[skills.data.results[i].icon];
-//           skillArray.push(skills.data.results[i]);
-//         }
-//         skillArray.sort(function (a, b) {
-//           return a.ranking - b.ranking;
-//         });
-//         setSkills(skillArray);
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     };
-//     fetchData();
-//   }, [newSkill]);
-
-//   const displaySkillModal = () => {
-//     setSkillModal("modal modal-active");
-//   };
-
-//   if (loginStatus) {
-//     return (
-//       <div className="main">
-//         <AdminHeaderC />
-//         <div className={skillModal}>
-//           <div ref={skillRef} className="modal-content">
-//             <SkillC
-//               skillModal={skillModal}
-//               setNewSkill={(newSkill) => setNewSkill(newSkill)}
-//             />
-//           </div>
-//         </div>
-
-//         <div className="container">
-//           <div className="title-div">
-//             <p className="title">about</p>
-//           </div>
-//           <div className="about-content-div">
-//             <div className="profile-div">
-//               <div className="profile-image-div">
-//                 <img
-//                   className="profile-image"
-//                   src="../images/about-image.jpg"
-//                 />
-//               </div>
-//               <div className="info-div">
-//                 <p>
-//                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
-//                   doloribus saepe, incidunt unde atque adipisci sint dignissimos
-//                   dolorum quod provident eligendi! Labore, commodi sit! Quasi
-//                   consequatur mollitia ad odit excepturi!
-//                 </p>
-//                 <p>
-//                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
-//                   doloribus saepe, incidunt unde atque adipisci sint dignissimos
-//                   dolorum quod provident eligendi! Labore, commodi sit! Quasi
-//                   consequatur mollitia ad odit excepturi!
-//                 </p>
-//                 <p>
-//                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
-//                   doloribus saepe, incidunt unde atque adipisci sint dignissimos
-//                   dolorum quod provident eligendi! Labore, commodi sit! Quasi
-//                   consequatur mollitia ad odit excepturi!
-//                 </p>
-//               </div>
-//             </div>
-//             <div className="skills-category-container-div">
-//               <div className="create-skill-div">
-//                 <button onClick={() => displaySkillModal()}>CREATE</button>
-//               </div>
-//               <div className="skill-category-div">
-//                 <div className="sub-title">MARKUP</div>
-//                 <div className="skill-div">
-//                   {skills.map((skill, index) => {
-//                     if (skill.category === "MARKUP") {
-//                       return (
-//                         <div key={index}>
-//                           <img className="icon" src={skill.iconImage.default} />
-//                           <div className="icon-label">{skill.skill}</div>
-//                         </div>
-//                       );
-//                     }
-//                   })}
-//                 </div>
-//               </div>
-//               <div className="skill-category-div">
-//                 <div className="sub-title">STYLE</div>
-//                 <div className="skill-div">
-//                   {skills.map((skill, index) => {
-//                     if (skill.category === "STYLE") {
-//                       return (
-//                         <div key={index}>
-//                           <img className="icon" src={skill.iconImage.default} />
-//                           <div className="icon-label">{skill.skill}</div>
-//                         </div>
-//                       );
-//                     }
-//                   })}
-//                 </div>
-//               </div>
-//               <div className="skill-category-div">
-//                 <div className="sub-title">FRONTEND</div>
-//                 <div className="skill-div">
-//                   {skills.map((skill, index) => {
-//                     if (skill.category === "FRONTEND") {
-//                       return (
-//                         <div key={index}>
-//                           <img className="icon" src={skill.iconImage.default} />
-//                           <div className="icon-label">{skill.skill}</div>
-//                         </div>
-//                       );
-//                     }
-//                   })}
-//                 </div>
-//               </div>
-//               <div className="skill-category-div">
-//                 <div className="sub-title">BACKEND</div>
-//                 <div className="skill-div">
-//                   {skills.map((skill, index) => {
-//                     if (skill.category === "BACKEND") {
-//                       return (
-//                         <div key={index}>
-//                           <img className="icon" src={skill.iconImage.default} />
-//                           <div className="icon-label">{skill.skill}</div>
-//                         </div>
-//                       );
-//                     }
-//                   })}
-//                 </div>
-//               </div>
-//               <div className="skill-category-div">
-//                 <div className="sub-title">DATABASE</div>
-//                 <div className="skill-div">
-//                   {skills.map((skill, index) => {
-//                     if (skill.category === "DATABASE") {
-//                       return (
-//                         <div key={index}>
-//                           <img className="icon" src={skill.iconImage.default} />
-//                           <div className="icon-label">{skill.skill}</div>
-//                         </div>
-//                       );
-//                     }
-//                   })}
-//                 </div>
-//               </div>
-//               <div className="skill-category-div">
-//                 <div className="sub-title">OTHER</div>
-//                 <div className="skill-div">
-//                   {skills.map((skill, index) => {
-//                     if (skill.category === "OTHER") {
-//                       return (
-//                         <div key={index}>
-//                           <img className="icon" src={skill.iconImage.default} />
-//                           <div className="icon-label">{skill.skill}</div>
-//                         </div>
-//                       );
-//                     }
-//                   })}
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//         <AdminFooterC />
-//       </div>
-//     );
-//   } else {
-//     return <Redirect to="/admin/login" />;
-//   }
-// };
-
-// export default AboutC;
+export default AboutC;

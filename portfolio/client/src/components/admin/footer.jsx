@@ -1,22 +1,30 @@
 import React from "react";
 
-const AdminFooterC = () => {
+const FooterC = () => {
   return (
-    <div className="grid footer">
-      <div>Ricardo Del Cueto</div>
-      <div className="grid admin-footer-nav">
-        <a className="nav-link" href="/admin">
-          <p>home</p>
+    <div className="grid sub-title footer">
+      <div className="grid footer-name">
+        <div>ricardo </div>
+        <div>del cueto</div>
+      </div>
+      <div></div>
+      <div className="grid footer-nav">
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/rick-del-cueto-353393131/"
+          rel="noreferrer"
+        >
+          <img className="footer-icon" src="../images/linkedin.svg" />
         </a>
-        <a className="nav-link" href="/admin/about">
-          <p>about</p>
+        <a target="_blank" href="https://github.com/ricmat19" rel="noreferrer">
+          <img className="footer-icon" src="../images/github.svg" />
         </a>
-        <a className="nav-link" href="/admin/portfolio">
-          <p>portfolio</p>
+        <a target="_blank" href="Resume.pdf">
+          <img className="footer-icon" src="../images/file.svg" />
         </a>
       </div>
     </div>
   );
 };
 
-export default AdminFooterC;
+export default FooterC;
