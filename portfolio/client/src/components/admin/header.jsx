@@ -24,16 +24,16 @@ const HeaderC = () => {
         <i className="fas fa-bars"></i>
       </div>
       <nav className={navbarShow}>
-        <a className="nav-link" href="#admin-home">
+        <a className="nav-link" href="#home">
           <p>home</p>
         </a>
-        <a className="nav-link" href="#admin-about">
+        <a className="nav-link" href="#about">
           <p>about</p>
         </a>
-        <a className="nav-link" href="#admin-skills">
+        <a className="nav-link" href="#skills">
           <p>skills & tools</p>
         </a>
-        <a className="nav-link" href="#admin-portfolio">
+        <a className="nav-link" href="#portfolio">
           <p>projects</p>
         </a>
       </nav>

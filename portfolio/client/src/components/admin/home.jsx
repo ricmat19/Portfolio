@@ -25,16 +25,16 @@ const HomeC = () => {
           </a>
         </div>
       </section>
-      <section id="admin-header">
+      <section id="header" className="admin-header">
         <HeaderC />
       </section>
-      <section id="admin-about" className="grid">
+      <section id="about" className="grid admin-about">
         <AboutC />
       </section>
-      <section id="admin-skills" className="grid">
+      <section id="skills" className="grid admin-skills">
         <SkillsC />
       </section>
-      <section id="admin-portfolio" className="grid">
+      <section id="portfolio" className="grid admin-portfolio">
         <ProjectsC />
       </section>
       <FooterC />

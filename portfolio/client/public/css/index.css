@@ -624,7 +624,7 @@ button {
   align-self: center;
 }
 
-#header, #admin-header {
+#header, .admin-header {
   position: sticky;
   top: 0;
   z-index: 2;
@@ -653,7 +653,7 @@ button {
     text-align: right;
   }
 
-  #header, #admin-header {
+  #header, .admin-header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -685,12 +685,12 @@ button {
   grid-template-columns: 60px 80px;
 }
 
-#about, #admin-about {
+#about, .admin-about {
   padding-top: 92px;
   min-height: calc(100vh - 92px);
 }
 
-#skills, #admin-skills {
+#skills, .admin-skills {
   padding-top: 92px;
   padding-bottom: 50px;
   min-height: calc(100vh - 92px);
@@ -702,17 +702,17 @@ button {
 }
 
 #skills,
-#admin-skills,
+.admin-skills,
 #contact {
   background-color: black;
   color: white;
 }
 
-#portfolio, #admin-portfolio {
+#portfolio, .admin-portfolio {
   padding-top: 92px;
 }
 
-#admin-portfolio{
+.admin-portfolio{
   margin-bottom: 92px;
 }
 
