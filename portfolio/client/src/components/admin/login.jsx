@@ -20,7 +20,7 @@ const LoginC = () => {
       });
 
       const loginResponse = await IndexAPI.get(`/login`);
-      console.log();
+
       if (loginResponse.data.data.loggedIn) {
         history.push("/admin");
       }

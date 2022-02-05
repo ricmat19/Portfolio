@@ -1,12 +1,5 @@
 import React, { useState } from "react";
 
-// navbar : header
-// toggle-button :hamburger
-// navbar-links : navbar
-// div
-// div
-// list
-
 const HeaderC = () => {
   const [navbarShow, setNavbarShow] = useState("navbar");
 

@@ -67,11 +67,6 @@ const AddProjectC = (props) => {
   const createProject = async (e) => {
     e.preventDefault();
     try {
-      console.log(project);
-      console.log(thumbnails);
-      console.log(primaryImage);
-      console.log(projectTech);
-
       await IndexAPI.post("/projects/add-project", {
         project,
         thumbnails,

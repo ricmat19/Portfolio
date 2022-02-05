@@ -30,20 +30,7 @@ const ProjectsC = () => {
 
   const handleClose = () => setOpen(false);
 
-  // const [filterButtons, setFilterButtons] = useState("skill-buttons");
   const [filteredThumbnails, setFilteredThumbnails] = useState([]);
-
-  // const displayFilter = async () => {
-  //   try {
-  //     if (filterButtons === "skill-buttons") {
-  //       setFilterButtons("skill-buttons skill-buttons-view");
-  //     } else {
-  //       setFilterButtons("skill-buttons");
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,16 +45,6 @@ const ProjectsC = () => {
         //Get all project thumbnails and images from DB
         const projects = await IndexAPI.get(`/projects`);
         setProjects(projects.data.data.skills);
-        // console.log(projects.data.data.skills[2]);
-
-        //Loops through all projects
-        // const descriptionsArray = [];
-        // for (let i = 0; i < projects.data.data.skills[2].length; i++) {
-        //     if (projects.data.data.skills[2][i].project === projectTechArray[i]) {
-        //       tempArray.push(projects.data.results[1][j].technology);
-        //     }
-        // }
-        // setDescriptions(descriptionsArray);
 
         //Adds all the projects in project_images to the projectThumbnailArray
         const projectThumbnailArray = [];
@@ -225,7 +202,6 @@ const ProjectsC = () => {
 
   return (
     <div className="main grid">
-      {/* <HeaderC /> */}
       <ProjectDetailsC
         title={detailsTitle}
         open={open}
@@ -288,7 +264,6 @@ const ProjectsC = () => {
           })}
         </div>
       </div>
-      {/* <FooterC /> */}
     </div>
   );
 };

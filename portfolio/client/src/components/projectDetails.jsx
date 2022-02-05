@@ -15,8 +15,6 @@ function importAll(projects) {
 const projectThumbnails = importAll(require.context("../images/projects"));
 
 const ProjectDetailsC = (props) => {
-  // const [title, setTitle] = useState("");
-  // const [githubLink, setGithubLink] = useState("");
   const [thumbnails, setThumbnails] = useState([]);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
   const [techs, setTechs] = useState([]);
@@ -27,10 +25,6 @@ const ProjectDetailsC = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // setTitle(parameters.project.toLowerCase());
-        //Fix: Add Github URL to DB
-        // setGithubLink(`https://github.com/ricmat19/${parameters.project}`);
-
         let project = {};
         //Get project from DB
         if (props.title !== "") {
@@ -113,7 +107,7 @@ const ProjectDetailsC = (props) => {
         }}
         sx={{
           overflowY: "auto",
-          overflowX: "hidden"
+          overflowX: "hidden",
         }}
       >
         <Fade in={props.open}>
@@ -129,7 +123,7 @@ const ProjectDetailsC = (props) => {
               p: 4,
               minWidth: "375px",
               maxHeight: "80vh",
-              overflow: "auto"
+              overflow: "auto",
             }}
           >
             <div className="project-details-container">
@@ -180,13 +174,17 @@ const ProjectDetailsC = (props) => {
                     <div className="sub-section">
                       website
                       <div className="resources-div">
-                        <a target="_blank" href={website} rel="noreferrer">{website}</a>
+                        <a target="_blank" href={website} rel="noreferrer">
+                          {website}
+                        </a>
                       </div>
                     </div>
                     <div className="sub-section">
                       github
                       <div className="resources-div">
-                        <a target="_blank" href={gitHubRepo} rel="noreferrer">{gitHubRepo}</a>
+                        <a target="_blank" href={gitHubRepo} rel="noreferrer">
+                          {gitHubRepo}
+                        </a>
                       </div>
                     </div>
                   </div>

@@ -54,7 +54,6 @@ const ProjectDetailsC = () => {
           }
         }
         setThumbnails(projectThumbnailsArray);
-        console.log(projectThumbnailsArray);
 
         const projectTechArray = [];
         //Loops through the array of technology associated with this project

@@ -5,15 +5,15 @@ import PropTypes from "prop-types";
 const UpdateC = (props) => {
   const [, setFiles] = useState([]);
   const [projectImages, setProjectImages] = useState([]);
-  const [projectFiles, setProjectFiles] = useState([]); //All Project Image urls
+  const [projectFiles, setProjectFiles] = useState([]);
   const [primaryImage, setPrimaryImage] = useState("");
-  const [skills, setSkills] = useState([]); //All Skills
+  const [skills, setSkills] = useState([]);
   const [projectSkills, setProjectSkills] = useState([]);
 
   const [titles, setTitles] = useState([]);
-  const [title, setTitle] = useState(""); //Current Project Name (set initial value though prop)
-  const [, setThumbnails] = useState([]); //Current thumbnail URL (set initial value though prop)
-  const [, setTech] = useState([]); //Current project tech (set initial value though prop)
+  const [title, setTitle] = useState("");
+  const [, setThumbnails] = useState([]);
+  const [, setTech] = useState([]);
   const [oldTitle, setOldTitle] = useState("");
 
   const projectInput = useRef(null);
@@ -128,12 +128,6 @@ const UpdateC = (props) => {
   const updateProject = async (e) => {
     e.preventDefault();
     try {
-      // console.log(title)
-      // console.log(projectFiles)
-      // console.log(primaryImage)
-      // console.log(projectSkills)
-      // console.log(oldTitle)
-
       await IndexAPI.put("/projects/update-project", {
         title,
         projectFiles,
@@ -143,8 +137,6 @@ const UpdateC = (props) => {
       });
 
       projectInput.current.value = "";
-
-      // props.setUpdatedProject(updatedProject)
     } catch (err) {
       console.log(err);
     }
