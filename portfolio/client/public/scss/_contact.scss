@@ -1,0 +1,26 @@
+.form-div {
+  display: grid;
+  justify-content: center;
+}
+
+.contact-form {
+  display: grid;
+  justify-content: center;
+  border-style: none;
+  background: rgb(218, 218, 218);
+  padding: 40px 40px 0 40px;
+  grid-template-columns: repeat(1, minmax(0px, 800px));
+}
+
+.subject-line {
+  margin: 15px 0;
+}
+
+.contact-form-button {
+  margin: 20px 0;
+}
+
+.textarea-subject-line {
+  display: grid;
+  margin-top: 15px;
+}

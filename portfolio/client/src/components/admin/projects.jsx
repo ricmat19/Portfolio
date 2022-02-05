@@ -202,13 +202,13 @@ const ProjectsC = () => {
     <div className="main grid">
       <AddProjectC open={open} handleClose={handleClose} />
       <div className="container">
-        <div className="title-div">
+        <div className="center">
           <p className="title">projects</p>
         </div>
         <button className="create-button" onClick={() => handleOpen()}>
           Add Project
         </button>
-        <div className="create-project-div">
+        <div>
           <div className="grid sub-title skill-filters">
             {skills.map((skill, index) => {
               return (

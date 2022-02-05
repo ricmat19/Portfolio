@@ -25,10 +25,10 @@ const SkillsC = () => {
   return (
     <div className="main grid">
       <AddSkillC open={open} handleClose={handleClose} />
-      <div className="title-div skills-title">
+      <div className="center skills-title">
         <p className="title">skills & tools</p>
       </div>
-      <div className="grid add-skill-button-div">
+      <div className="grid">
         <button className="add-skill-button" onClick={() => handleOpen()}>
           Add Skill
         </button>

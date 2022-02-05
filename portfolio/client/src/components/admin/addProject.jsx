@@ -111,7 +111,7 @@ const AddProjectC = (props) => {
             overflow: "auto",
           }}
         >
-          <div className="grid add-project-modal">
+          <div className="grid gap">
             <div className="grid create-modal-grid">
               <label className="project-title">TITLE</label>
               <input
@@ -122,19 +122,19 @@ const AddProjectC = (props) => {
               />
             </div>
             <div className="grid project-creation-checkbox-div">
-              <div className="grid thumbnail-checkbox-div">
+              <div className="grid selection-grid">
                 <div className="center">
                   <div className="grid image-checkbox-list">
-                    <label className="image-checkbox-label">THUMBNAIL</label>
-                    <label className="image-checkbox-label">Selection</label>
-                    <label className="image-checkbox-label">Primary</label>
+                    <label className="align-left">THUMBNAIL</label>
+                    <label className="align-left">Selection</label>
+                    <label className="align-left">Primary</label>
                   </div>
                 </div>
                 <div>
                   {projectImages.map((image, index) => {
                     return (
                       <div key={index} className="grid image-checkbox-list">
-                        <label className="image-checkbox-label">{image}</label>
+                        <label className="align-left">{image}</label>
                         <div>
                           <input
                             type="checkbox"
@@ -162,18 +162,18 @@ const AddProjectC = (props) => {
                   })}
                 </div>
               </div>
-              <div className="grid tech-grid">
+              <div className="grid selection-grid">
                 <div className="center">
                   <div className="grid tech-checkbox-list">
-                    <label className="image-checkbox-label">TECH</label>
-                    <label className="image-checkbox-label">Selection</label>
+                    <label className="align-left">TECH</label>
+                    <label className="align-left">Selection</label>
                   </div>
                 </div>
                 <div>
                   {skills.map((skill, index) => {
                     return (
                       <div key={index} className="grid tech-checkbox-list">
-                        <label className="tech-checkbox-label">{skill}</label>
+                        <label className="align-left">{skill}</label>
                         <div>
                           <input
                             type="checkbox"
@@ -195,7 +195,7 @@ const AddProjectC = (props) => {
                 </div>
               </div>
             </div>
-            <div className="create-button-div">
+            <div className="align-right">
               <button
                 className="form-button"
                 type="submit"

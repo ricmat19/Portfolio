@@ -25,7 +25,7 @@ const DeleteC = (props) => {
   };
 
   return (
-    <div className="grid add-project-modal">
+    <div className="grid gap">
       <div>Are you sure you want to delete &apos;{title}&apos;?</div>
       <button
         className="form-button"

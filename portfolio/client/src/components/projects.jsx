@@ -207,11 +207,11 @@ const ProjectsC = () => {
         open={open}
         handleClose={handleClose}
       />
-      <div className="container">
-        <div className="title-div">
+      <div>
+        <div className="center">
           <p className="title">projects</p>
         </div>
-        <div className="create-project-div">
+        <div>
           <div className="grid sub-title skill-filters">
             {skills.map((skill, index) => {
               return (
@@ -243,7 +243,7 @@ const ProjectsC = () => {
                       <div className="thumbnail-title-div">
                         {titles[thumbnailIndex].toLowerCase()}
                       </div>
-                      <div className="grid buttons-div">
+                      <div className="grid gap">
                         <div className="tech-used">
                           {projects[2].map((project, index) => {
                             if (thumbnail.project === project.project) {

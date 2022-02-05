@@ -143,7 +143,7 @@ const UpdateC = (props) => {
   };
 
   return (
-    <div className="grid add-project-modal">
+    <div className="grid gap">
       <div className="grid toDo-modal-grid">
         <label>TITLE</label>
         <input
@@ -154,14 +154,14 @@ const UpdateC = (props) => {
           value={title}
         />
       </div>
-      <div className="grid project-creation-checkbox-div">
+      <div className="grid project-update-checkbox-div">
         <div className="grid thumbnail-checkbox-div">
           <div>
             <label>THUMBNAIL</label>
             <div className="grid image-checkbox-list">
-              <label className="image-checkbox-label"></label>
-              <label className="image-checkbox-label">Selection</label>
-              <label className="image-checkbox-label">Primary</label>
+              <label className="align-left"></label>
+              <label className="align-left">Selection</label>
+              <label className="align-left">Primary</label>
             </div>
           </div>
           <div>
@@ -169,7 +169,7 @@ const UpdateC = (props) => {
               if (projectFiles.includes(file)) {
                 return (
                   <div key={index} className="grid image-checkbox-list">
-                    <label className="image-checkbox-label">{file}</label>
+                    <label className="align-left">{file}</label>
                     <div>
                       <input
                         type="checkbox"
@@ -198,7 +198,7 @@ const UpdateC = (props) => {
               } else {
                 return (
                   <div key={index} className="grid image-checkbox-list">
-                    <label className="image-checkbox-label">{file}</label>
+                    <label className="align-left">{file}</label>
                     <div>
                       <input
                         type="checkbox"
@@ -231,8 +231,8 @@ const UpdateC = (props) => {
           <div>
             <label>TECH</label>
             <div className="grid tech-checkbox-list">
-              <label className="image-checkbox-label"></label>
-              <label className="image-checkbox-label">Selection</label>
+              <label className="align-left"></label>
+              <label className="align-left">Selection</label>
             </div>
           </div>
           <div>
@@ -240,7 +240,7 @@ const UpdateC = (props) => {
               if (projectSkills.includes(skill)) {
                 return (
                   <div key={index} className="grid tech-checkbox-list">
-                    <label className="tech-checkbox-label">{skill}</label>
+                    <label className="align-left">{skill}</label>
                     <div>
                       <input
                         type="checkbox"
@@ -262,7 +262,7 @@ const UpdateC = (props) => {
               } else {
                 return (
                   <div key={index} className="grid tech-checkbox-list">
-                    <label className="tech-checkbox-label">{skill}</label>
+                    <label className="align-left">{skill}</label>
                     <div>
                       <input
                         type="checkbox"

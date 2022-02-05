@@ -1,0 +1,24 @@
+.footer {
+  color: white;
+  text-decoration: none;
+  background: black;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 50px;
+  height: 92px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.footer-name {
+  grid-template-columns: 60px 80px;
+}
+
+.footer-nav {
+  grid-template-columns: repeat(3, 1fr);
+  text-align: right;
+  gap: 10px;
+}
+
+.footer-icon {
+  height: 30px;
+}

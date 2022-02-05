@@ -1,0 +1,19 @@
+.about-content-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 40px;
+  justify-content: center;
+  margin: 0 10%;
+  padding: 0 5%;
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 450px;
+  justify-self: center;
+}
+
+.info-text-div {
+  text-align: justify;
+  width: 450px;
+}

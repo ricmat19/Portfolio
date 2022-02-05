@@ -1,0 +1,42 @@
+//Skills
+.skills-title {
+  display: grid;
+  align-content: flex-end;
+}
+
+.add-skill-button {
+  border: white solid 2px;
+  width: fit-content;
+  margin-left: 40px;
+}
+
+.skills-container {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  margin: 0 20%;
+  gap: 40px;
+}
+
+.icon-container {
+  text-align: center;
+  margin: 10px;
+  align-self: center;
+}
+
+.icon {
+  height: 100px;
+}
+
+.icon:hover {
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+//Add Skill
+.skill-modal-div {
+  gap: 10px;
+}
+
+.skill-input {
+  grid-template-columns: 100px 1fr;
+  text-align: left;
+  align-items: center;
+}

@@ -126,8 +126,8 @@ const ProjectDetailsC = (props) => {
               overflow: "auto",
             }}
           >
-            <div className="project-details-container">
-              <div className="project-details">
+            <div>
+              <div className="grid">
                 <div className="grid slider-div">
                   <div
                     className="slider-arrow"
@@ -168,7 +168,7 @@ const ProjectDetailsC = (props) => {
                     <div className="title">{props.title.toLowerCase()}</div>
                   </div>
                   <div className="summary-container">
-                    <p className="summary-div">{summary}</p>
+                    <p className="justify-self">{summary}</p>
                   </div>
                   <div className="resources-container">
                     <div className="sub-section">

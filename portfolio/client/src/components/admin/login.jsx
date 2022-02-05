@@ -31,10 +31,10 @@ const LoginC = () => {
 
   return (
     <div className="login-main">
-      <div className="login-div title-div">
-        <p className="login-header">login</p>
+      <div className="center">
+        <p className="center">login</p>
         <div className="login-inputs">
-          <div className="grid modal-input-div">
+          <div className="grid">
             <input
               type="email"
               ref={emailInput}
@@ -46,7 +46,7 @@ const LoginC = () => {
               }}
             />
           </div>
-          <div className="grid modal-input-div">
+          <div className="grid">
             <input
               type="password"
               ref={passwordInput}
@@ -59,7 +59,7 @@ const LoginC = () => {
             />
           </div>
         </div>
-        <div className="form-button-div">
+        <div className="center">
           <button className="form-button" onClick={handleLogin}>
             Login
           </button>

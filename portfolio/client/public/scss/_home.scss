@@ -1,0 +1,39 @@
+.home-page-div {
+  background-image: url("/images/computer-work.jpg");
+  background-blend-mode: overlay;
+  background-color: rgba(0, 40, 66, 0.7);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.home-title {
+  color: white;
+  font-size: 100px;
+  text-align: right;
+  padding: 50px;
+}
+
+.resume-div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.resume-button {
+  background-color: white;
+  color: black;
+}
+
+.intro-button {
+  color: white;
+  text-align: center;
+  margin-top: 150px;
+  font-size: 35px;
+}
+
+.down-arrow {
+  font-size: 50px;
+  color: white;
+}

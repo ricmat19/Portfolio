@@ -3,12 +3,12 @@ import React from "react";
 const AboutC = () => {
   return (
     <div className="main grid">
-      <div className="container about-container">
-        <div className="title-div">
+      <div className="grid">
+        <div className="center">
           <p className="title">about</p>
         </div>
         <div className="about-content-div">
-          <div className="profile-image-div">
+          <div className="justify-self">
             <img className="profile-image" src="../images/about-image.jpg" />
           </div>
           <div className="info-div">

@@ -100,7 +100,7 @@ const ProjectDetailsC = () => {
         <AdminHeaderC />
 
         <div className="project-details-container">
-          <div className="title-div">
+          <div className="center">
             <p className="title">{title}</p>
           </div>
           <div className="grid project-details">
@@ -111,7 +111,7 @@ const ProjectDetailsC = () => {
               >
                 <LeftArrowC />
               </div>
-              <div className="grid project-slide-div">
+              <div className="grid justify-content">
                 {thumbnails[0] !== undefined ? (
                   <div className="grid image-container">
                     <img
@@ -140,7 +140,7 @@ const ProjectDetailsC = () => {
               })}
             </div>
             <div className="text-content-container">
-              <div className="info-container">
+              <div>
                 <div className="sub-title">about the project</div>
                 <div className="info-div">
                   <p>
@@ -173,7 +173,7 @@ const ProjectDetailsC = () => {
                   </p>
                 </div>
               </div>
-              <div className="resource-container">
+              <div className="resources-container">
                 <div className="sub-title">Resources</div>
                 <div className="resources-div">
                   <ul>

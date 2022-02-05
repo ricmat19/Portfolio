@@ -1,0 +1,14 @@
+.login-main {
+  display: grid;
+  height: 100vh;
+  color: white;
+  background-color: black;
+  justify-content: center;
+  align-content: center;
+}
+
+.login-inputs {
+  display: grid;
+  gap: 10px;
+  width: 300px;
+}

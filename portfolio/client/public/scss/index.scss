@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-size: 17px;
+  font-family: "Rajdhani";
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input,
+select,
+textarea {
+  border-style: none;
+  padding: 10px;
+  outline: none;
+  font-family: "Rajdhani";
+  resize: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  width: auto;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.grid {
+  display: grid;
+}
+
+.center {
+  text-align: center;
+}
+
+.justify-content {
+  justify-content: center;
+}
+
+.justify-self{
+  justify-self: center;
+}
+
+.align-content-center{
+  align-content: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.gap {
+  gap: 20px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.sub-title {
+  font-size: 20px;
+}
+
+.info-div {
+  justify-self: center;
+  text-align: justify;
+}
+
+.form-button {
+  border: white 3px solid;
+}
+
+#header,
+.admin-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#about,
+.admin-about {
+  padding-top: 92px;
+  min-height: calc(100vh - 92px);
+}
+
+#skills,
+.admin-skills {
+  padding-top: 92px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 92px);
+  background-color: black;
+  color: white;
+}
+
+#portfolio,
+.admin-portfolio {
+  padding-top: 92px;
+}
+
+.admin-portfolio {
+  margin-bottom: 92px;
+}
+
+#contact {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  margin-top: 92px;
+  padding-top: 92px;
+}
+
+@import "about";
+@import "contact";
+@import "footer";
+@import "header";
+@import "home";
+@import "login";
+@import "projects";
+@import "skills";

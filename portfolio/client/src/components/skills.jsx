@@ -16,7 +16,7 @@ const SkillsC = () => {
 
   return (
     <div className="main grid">
-      <div className="title-div skills-title">
+      <div className="center skills-title">
         <p className="title">skills & tools</p>
       </div>
       <div className="grid sub-title skills-container">

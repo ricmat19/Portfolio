@@ -33,40 +33,37 @@ const ContactC = () => {
 
   return (
     <div className="main grid">
-      <div className="container contact-container">
-        <div className="title-div">
+      <div className="align-content-center">
+        <div className="center">
           <p className="title">contact</p>
         </div>
         <div className="form-div">
           <form className="contact-form" method="POST" action="/contact">
-            <div className="subject-line">
+            <div className="grid subject-line">
               <input
                 type="text"
                 ref={nameInput}
                 onChange={(e) => setName(e.target.value)}
                 name="name"
-                className="form-control"
                 placeholder="Name:"
               />
             </div>
-            <div className="subject-line">
+            <div className="grid subject-line">
               <input
                 type="email"
                 ref={emailInput}
                 onChange={(e) => setEmail(e.target.value)}
                 name="email"
-                className="form-control"
                 placeholder="Email:"
                 required
               />
             </div>
-            <div className="subject-line">
+            <div className="grid subject-line">
               <input
                 type="text"
                 ref={subjectInput}
                 onChange={(e) => setSubject(e.target.value)}
                 name="subject"
-                className="form-control"
                 placeholder="Subject:"
                 required
               />
@@ -81,7 +78,7 @@ const ContactC = () => {
                 required
               ></textarea>
             </div>
-            <div className="form-button-div">
+            <div className="center">
               <button
                 className="contact-form-button"
                 onClick={handleSubmit}
